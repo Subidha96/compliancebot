@@ -1,0 +1,35 @@
+SYNTHETIC EDUCATIONAL SUMMARY — not official legal text
+================================================================================
+Electronic Transactions Act 2063 (2006) — Key Clauses Summary
+Source: Nepal Law Commission
+================================================================================
+
+This document provides an educational summary of the Electronic Transactions Act 2063. For official text, refer to the Nepal Gazette.
+
+1. LEGAL RECOGNITION OF ELECTRONIC RECORDS (Section 3-6)
+   - Electronic records and transactions have legal validity
+   - Digital signatures are legally recognized
+   - Contracts formed electronically are enforceable
+
+2. CYBERCRIME PROVISIONS (Section 7-12)
+   - Unauthorized access to computer systems: up to 3 years imprisonment or NPR 30,000 fine
+   - Data alteration or destruction: up to 5 years imprisonment
+   - Privacy violations: up to 3 years imprisonment or NPR 30,000 fine
+   - Identity theft and fraud provisions
+
+3. CERTIFYING AUTHORITIES
+   - Licensing of certifying authorities
+   - Requirements for digital signature certificates
+   - Liability of certifying authorities
+
+4. OFFENCES AND PENALTIES
+   - Unauthorized access: 3 years or NPR 30,000
+   - Data interference: 5 years or NPR 50,000
+   - System interference: 3 years or NPR 30,000
+   - Misuse of electronic signature: 2 years or NPR 20,000
+
+5. JURISDICTION
+   - Cases can be filed in district courts
+   - Nepal Police Cyber Bureau handles investigations
+
+Note: This Act is currently under review for updates to address emerging technologies and align with international standards.

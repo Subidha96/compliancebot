@@ -1,0 +1,48 @@
+SYNTHETIC EDUCATIONAL SUMMARY — not official legal text
+================================================================================
+Individual Privacy Act 2075 (2018) — Key Provisions Summary
+Source: Nepal Law Commission
+================================================================================
+
+This document provides an educational summary of the Individual Privacy Act 2075. For official text, refer to the Nepal Gazette.
+
+1. SCOPE AND APPLICATION
+   - Applies to all personal data of individuals in Nepal
+   - Covers both digital and physical records
+   - Applies to government and private sector
+
+2. DEFINITION OF PERSONAL DATA
+   - Name, address, contact information
+   - Financial information
+   - Health records
+   - Biometric data
+   - Any information that can identify an individual
+
+3. DATA PROCESSING PRINCIPLES
+   - Lawfulness, fairness, and transparency
+   - Purpose limitation
+   - Data minimization
+   - Accuracy
+   - Storage limitation
+   - Integrity and confidentiality
+
+4. INDIVIDUAL RIGHTS
+   - Right to access personal data
+   - Right to rectification of inaccurate data
+   - Right to object to processing
+   - Right to data portability (limited)
+
+5. DATA PROTECTION OFFICER
+   - Required for organizations processing sensitive data
+   - Responsible for compliance monitoring
+   - Acts as contact point for data subjects
+
+6. BREACH NOTIFICATION
+   - Notify affected individuals within 72 hours
+   - Notify Privacy Commission for significant breaches
+   - Documentation of breach and remediation
+
+7. PENALTIES
+   - Unauthorized access: up to NPR 100,000 fine
+   - Data breach due to negligence: up to NPR 500,000
+   - Repeat offenses: higher penalties and potential criminal charges

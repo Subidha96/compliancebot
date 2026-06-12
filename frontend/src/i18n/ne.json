@@ -1,0 +1,70 @@
+{
+  "common": {
+    "appName": "ComplianceBot+",
+    "loading": "लोड हुँदैछ...",
+    "error": "केही गडबडी भयो",
+    "retry": "फेरि प्रयास गर्नुहोस्",
+    "save": "सेव गर्नुहोस्",
+    "cancel": "रद्द गर्नुहोस्",
+    "next": "अर्को",
+    "back": "पछाडि",
+    "submit": "पेश गर्नुहोस्",
+    "export": "निर्यात गर्नुहोस्",
+    "close": "बन्द गर्नुहोस्"
+  },
+  "nav": {
+    "home": "होम",
+    "chat": "च्याट",
+    "gapAssessment": "ग्याप मूल्याङ्कन",
+    "about": "बारेमा"
+  },
+  "chat": {
+    "title": "जीआरसी सहायक",
+    "subtitle": "अनुपालन नीतिहरूबारे सोध्नुहोस्",
+    "placeholder": "यहाँ आफ्नो प्रश्न टाइप गर्नुहोस्...",
+    "send": "पठाउनुहोस्",
+    "privateMode": "प्राइभेट मोड",
+    "privateModeDescription": "तपाईंको सत्र सेव हुँदैन",
+    "highConfidence": "उच्च विश्वास",
+    "mediumConfidence": "मध्यम विश्वास",
+    "lowConfidence": "कम विश्वास - कृपया आधिकारिक स्रोतसँग जाँच गर्नुहोस्",
+    "viewPlainLanguage": "सामान्य भाषामा हेर्नुहोस्",
+    "viewTechnical": "प्राविधिक संस्करण हेर्नुहोस्",
+    "sources": "स्रोतहरू"
+  },
+  "gapAssessment": {
+    "title": "अनुपालन ग्याप मूल्याङ्कन",
+    "subtitle": "तपाईंको संस्थाको अनुपालन स्थिति मूल्याङ्कन गर्नुहोस्",
+    "startAssessment": "मूल्याङ्कन सुरु गर्नुहोस्",
+    "stepOf": "चरण {{current}} / {{total}}",
+    "domainProgress": "क्षेत्र: {{domain}}",
+    "timeRemaining": "लगभग {{minutes}} मिनेट बाँकी",
+    "complete": "मूल्याङ्कन पूरा",
+    "viewReport": "प्रतिवेदन हेर्नुहोस्",
+    "exportReport": "प्रतिवेदन निर्यात गर्नुहोस्"
+  },
+  "report": {
+    "title": "अनुपालन प्रतिवेदन",
+    "overallScore": "समग्र अनुपालन स्कोर",
+    "domainScores": "क्षेत्र स्कोरहरू",
+    "gaps": "पहिचान गरिएका ग्यापहरू",
+    "remediation": "सुधार योजना",
+    "technicalView": "प्राविधिक दृश्य",
+    "managerSummary": "व्यवस्थापक सारांश",
+    "exportMarkdown": "Markdown को रूपमा डाउनलोड गर्नुहोस्"
+  },
+  "domains": {
+    "incidentResponse": "घटना प्रतिक्रिया",
+    "dataProtection": "डेटा सुरक्षा",
+    "accessControls": "पहुँच नियन्त्रण",
+    "securityAwareness": "सुरक्षा जागरूकता तालिम",
+    "thirdPartyRisk": "तेस्रो पक्ष जोखिम"
+  },
+  "accessibility": {
+    "skipToContent": "सामग्रीमा जानुहोस्",
+    "languageToggle": "भाषा टगल गर्नुहोस्",
+    "modeToggle": "प्राइभेट मोड टगल गर्नुहोस्",
+    "chatInput": "च्याट सन्देश इनपुट",
+    "sendMessage": "सन्देश पठाउनुहोस्"
+  }
+}

@@ -1,0 +1,34 @@
+SYNTHETIC EDUCATIONAL SUMMARY — not official legal text
+================================================================================
+National Cyber Security Policy 2023 — Key Provisions Summary
+Source: Nepal Cabinet, August 2023
+================================================================================
+
+This document provides an educational summary of Nepal's National Cyber Security Policy 2023. For official text, refer to the Nepal Gazette.
+
+1. ESTABLISHMENT OF NATIONAL CYBER SECURITY CENTER
+   - Established under Ministry of Communication and Information Technology (MoCIT)
+   - Responsible for national cybersecurity strategy implementation
+   - Coordinates across government agencies
+
+2. CRITICAL INFORMATION INFRASTRUCTURE PROTECTION
+   - Identifies critical sectors: banking, telecommunications, energy, government services
+   - Requires risk assessments for critical infrastructure operators
+   - Mandates incident reporting within 24 hours
+
+3. CAPACITY BUILDING
+   - National cybersecurity training programs
+   - Public awareness campaigns
+   - Academic curriculum development in cybersecurity
+
+4. INCIDENT RESPONSE
+   - National Computer Emergency Response Team (NP-CERT)
+   - Coordination with international CERTs
+   - Mandatory breach notification requirements
+
+5. COMPLIANCE FRAMEWORK
+   - Sector-specific compliance requirements
+   - Regular audits and assessments
+   - Penalties for non-compliance
+
+For the complete official text, visit: https://mocit.gov.np

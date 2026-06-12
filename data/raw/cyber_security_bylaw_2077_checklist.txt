@@ -1,0 +1,44 @@
+SYNTHETIC EDUCATIONAL SUMMARY — not official legal text
+================================================================================
+Cyber Security Bylaw 2077 (2020) — Compliance Checklist
+Source: Nepal Telecommunications Authority (NTA)
+================================================================================
+
+This document provides an educational summary of the Cyber Security Bylaw 2077. For official text, refer to the Nepal Gazette.
+
+1. APPLICABLE ENTITIES
+   - All Telecommunication Service Providers (TSPs)
+   - Internet Service Providers (ISPs)
+   - Public and private organizations handling sensitive data
+
+2. MANDATORY REQUIREMENTS
+
+   a) Information Security Audits
+      - Quarterly IS audits by certified auditors
+      - Annual penetration testing
+      - Documentation of audit findings and remediation
+
+   b) Security Monitoring
+      - 24x7 security operations center (SOC)
+      - Real-time intrusion detection systems
+      - Log retention for minimum 6 months
+
+   c) Incident Response
+      - Dedicated incident response team
+      - Incident response plan documented and tested
+      - Mandatory reporting to NTA within 24 hours
+
+   d) Personnel Security
+      - Background checks for key personnel
+      - Mandatory security awareness training
+      - Confidentiality agreements
+
+3. COMPLIANCE DEADLINES
+   - Initial compliance: Within 6 months of enactment
+   - Annual compliance reports to NTA
+   - Penalties for non-compliance: NPR 50,000 to 500,000
+
+4. NTA MONITORING
+   - NTA has authority to conduct inspections
+   - Can request documentation at any time
+   - May impose additional requirements based on risk assessment

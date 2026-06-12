@@ -1,0 +1,52 @@
+SYNTHETIC EDUCATIONAL SUMMARY — not official legal text
+================================================================================
+NIST Cybersecurity Framework 2.0 — Core Functions Summary
+Source: National Institute of Standards and Technology
+================================================================================
+
+This document provides an educational summary of NIST CSF 2.0. For official text, visit NIST.gov.
+
+1. GOVERN (GV)
+   - GV.OC: Organizational Context
+   - GV.RM: Risk Management Strategy
+   - GV.RR: Roles, Responsibilities, and Authorities
+   - GV.PO: Policy
+   - GV.OV: Oversight
+   - GV.SC: Cybersecurity Supply Chain Risk Management
+
+2. IDENTIFY (ID)
+   - ID.AM: Asset Management
+   - ID.RA: Risk Assessment
+   - ID.IM: Improvement
+
+3. PROTECT (PR)
+   - PR.AA: Identity Management, Authentication, and Access Control
+   - PR.AT: Awareness and Training
+   - PR.DS: Data Security
+   - PR.PS: Platform Security
+   - PR.IR: Technology Infrastructure Resilience
+
+4. DETECT (DE)
+   - DE.CM: Continuous Monitoring
+   - DE.AE: Adverse Event Analysis
+
+5. RESPOND (RS)
+   - RS.MA: Incident Management
+   - RS.AN: Incident Analysis
+   - RS.CO: Incident Response Reporting and Communication
+   - RS.MI: Incident Mitigation
+
+6. RECOVER (RC)
+   - RC.RP: Incident Recovery Plan Execution
+   - RC.CO: Incident Recovery Communication
+
+7. IMPLEMENTATION TIERS
+   - Tier 1: Partial
+   - Tier 2: Risk Informed
+   - Tier 3: Repeatable
+   - Tier 4: Adaptive
+
+8. PROFILES
+   - Current Profile: Current cybersecurity outcomes
+   - Target Profile: Desired cybersecurity outcomes
+   - Gap analysis between current and target

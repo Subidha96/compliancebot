@@ -1,0 +1,70 @@
+{
+  "common": {
+    "appName": "ComplianceBot+",
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "retry": "Try again",
+    "save": "Save",
+    "cancel": "Cancel",
+    "next": "Next",
+    "back": "Back",
+    "submit": "Submit",
+    "export": "Export",
+    "close": "Close"
+  },
+  "nav": {
+    "home": "Home",
+    "chat": "Chat",
+    "gapAssessment": "Gap Assessment",
+    "about": "About"
+  },
+  "chat": {
+    "title": "GRC Assistant",
+    "subtitle": "Ask about compliance policies",
+    "placeholder": "Type your question here...",
+    "send": "Send",
+    "privateMode": "Private Mode",
+    "privateModeDescription": "Your session will not be saved",
+    "highConfidence": "High confidence",
+    "mediumConfidence": "Medium confidence",
+    "lowConfidence": "Low confidence - please verify with official source",
+    "viewPlainLanguage": "View in plain language",
+    "viewTechnical": "View technical version",
+    "sources": "Sources"
+  },
+  "gapAssessment": {
+    "title": "Compliance Gap Assessment",
+    "subtitle": "Evaluate your organization's compliance posture",
+    "startAssessment": "Start Assessment",
+    "stepOf": "Step {{current}} of {{total}}",
+    "domainProgress": "Domain: {{domain}}",
+    "timeRemaining": "Approximately {{minutes}} minutes remaining",
+    "complete": "Assessment Complete",
+    "viewReport": "View Report",
+    "exportReport": "Export Report"
+  },
+  "report": {
+    "title": "Compliance Report",
+    "overallScore": "Overall Compliance Score",
+    "domainScores": "Domain Scores",
+    "gaps": "Identified Gaps",
+    "remediation": "Remediation Roadmap",
+    "technicalView": "Technical View",
+    "managerSummary": "Manager Summary",
+    "exportMarkdown": "Download as Markdown"
+  },
+  "domains": {
+    "incidentResponse": "Incident Response",
+    "dataProtection": "Data Protection",
+    "accessControls": "Access Controls",
+    "securityAwareness": "Security Awareness Training",
+    "thirdPartyRisk": "Third-Party Risk"
+  },
+  "accessibility": {
+    "skipToContent": "Skip to content",
+    "languageToggle": "Toggle language",
+    "modeToggle": "Toggle private mode",
+    "chatInput": "Chat message input",
+    "sendMessage": "Send message"
+  }
+}
