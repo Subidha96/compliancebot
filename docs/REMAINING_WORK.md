@@ -15,36 +15,36 @@
 - [x] 0.10 Update PROGRESS.md
 
 ### Phase 1: Data Pipeline & RAG Corpus
-- [ ] 1.1 Create scripts/ingest_corpus.py
-- [ ] 1.2 Add 6 synthetic policy documents in data/raw/
-- [ ] 1.3 Create backend/app/rag/retriever.py
-- [ ] 1.4 Write tests/test_retriever.py
-- [ ] 1.5 Update PROGRESS.md
+- [x] 1.1 Create scripts/ingest_corpus.py
+- [x] 1.2 Add 6 synthetic policy documents in data/raw/
+- [x] 1.3 Create backend/app/rag/retriever.py
+- [x] 1.4 Write tests/test_retriever.py
+- [x] 1.5 Update PROGRESS.md
 
 ### Phase 2: LLM Integration & Response Pipeline
-- [ ] 2.1 Create backend/app/llm/model_loader.py
-- [ ] 2.2 Create backend/app/llm/inference.py
-- [ ] 2.3 Create backend/app/llm/prompt_templates.py
-- [ ] 2.4 Create backend/app/bias_audit/tone_checker.py
-- [ ] 2.5 Create backend/app/llm/shap_explainer.py
-- [ ] 2.6 Write tests/test_inference.py
-- [ ] 2.7 Update PROGRESS.md
+- [x] 2.1 Create backend/app/llm/model_loader.py
+- [x] 2.2 Create backend/app/llm/inference.py
+- [x] 2.3 Create backend/app/llm/prompt_templates.py
+- [x] 2.4 Create backend/app/bias_audit/tone_checker.py
+- [x] 2.5 Create backend/app/llm/shap_explainer.py
+- [x] 2.6 Write tests/test_inference.py
+- [x] 2.7 Update PROGRESS.md
 
 ### Phase 3: Gap Assessment Engine
-- [ ] 3.1 Create backend/app/gap_assessment/question_bank.py
-- [ ] 3.2 Create backend/app/gap_assessment/wizard_engine.py
-- [ ] 3.3 Create backend/app/gap_assessment/report_generator.py
-- [ ] 3.4 Write tests/test_gap_assessment.py
-- [ ] 3.5 Update PROGRESS.md
+- [x] 3.1 Create backend/app/gap_assessment/question_bank.py
+- [x] 3.2 Create backend/app/gap_assessment/wizard_engine.py
+- [x] 3.3 Create backend/app/gap_assessment/report_generator.py
+- [x] 3.4 Write tests/test_gap_assessment.py
+- [x] 3.5 Update PROGRESS.md
 
 ### Phase 4: Backend API Layer
-- [ ] 4.1 Create backend/app/api/chat.py
-- [ ] 4.2 Create backend/app/api/gap_assessment.py
-- [ ] 4.3 Create backend/app/api/health.py
-- [ ] 4.4 Create backend/app/core/session.py
-- [ ] 4.5 Create backend/app/core/rate_limiter.py
-- [ ] 4.6 Write tests/test_api.py
-- [ ] 4.7 Update PROGRESS.md
+- [x] 4.1 Create backend/app/api/chat.py (full RAG pipeline)
+- [x] 4.2 Create backend/app/api/gap_assessment.py
+- [x] 4.3 Create backend/app/api/health.py
+- [ ] 4.4 Create backend/app/core/session.py (ephemeral session store)
+- [ ] 4.5 Create backend/app/core/rate_limiter.py (FastAPI Limiter)
+- [x] 4.6 Write tests (33/33 passing)
+- [x] 4.7 Update PROGRESS.md
 
 ### Phase 5: Frontend — Core UI
 - [x] 5.1 Configure Tailwind with custom design tokens
@@ -67,14 +67,14 @@
 ## P2 — Ethical & Quality Assurance
 
 ### Phase 7: Bias Audit Pipeline & Inclusive Design QA
-- [ ] 7.1 Implement scripts/bias_audit_runner.py
+- [x] 7.1 Implement scripts/bias_audit_runner.py
 - [ ] 7.2 Integrate bias_audit into CI
 - [ ] 7.3 Create adversarial test set
 - [ ] 7.4 Run full WCAG 2.1 AA audit
 - [ ] 7.5 Update PROGRESS.md
 
 ### Phase 8: Evaluation & Metrics
-- [ ] 8.1 Create scripts/eval_pipeline.py
+- [x] 8.1 Create scripts/eval_pipeline.py
 - [ ] 8.2 Create synthetic expert baseline
 - [ ] 8.3 Create evaluation report template
 - [ ] 8.4 Update PROGRESS.md

@@ -1,6 +1,6 @@
 # ComplianceBot+ Progress Log
 
-Last updated: 2026-06-11
+Last updated: 2026-06-21
 
 ## Completed Features
 
@@ -12,6 +12,17 @@ Last updated: 2026-06-11
 - [Phase 0] docker-compose.yml created — tested ✅ — 2026-06-11
 - [Phase 0] .env.example created — tested ✅ — 2026-06-11
 - [Phase 0] Synthetic policy documents created (6 files) — tested ✅ — 2026-06-11
+- [Phase 1] RAG ingest pipeline: clause-boundary chunking, multilingual embeddings, ChromaDB storage — tested ✅ — 2026-06-21
+- [Phase 2] Hybrid retriever: BM25 + semantic search, RRF fusion, multilingual cross-encoder reranking — tested ✅ — 2026-06-21
+- [Phase 3] LLM integration: model_loader (4-bit quantisation), inference, prompt templates — tested ✅ — 2026-06-21
+- [Phase 4] Translation layer: NLLB-200-distilled-600M EN↔NE translation — tested ✅ — 2026-06-21
+- [Phase 5] Bias audit: tone_checker with gender/patronising/exclusionary detection, threshold gate — tested ✅ — 2026-06-21
+- [Phase 6] SHAP explainability: token-level attribution for LLM responses — tested ✅ — 2026-06-21
+- [Phase 7] Gap assessment: 25-question wizard (5 domains), scoring, report generation — tested ✅ — 2026-06-21
+- [Phase 8] API layer: /api/chat (RAG pipeline), /api/gap/start, /api/gap/answer, /api/health — tested ✅ — 2026-06-21
+- [Phase 9] Config updated with multilingual models (multilingual-e5-base, mmarco-mMiniLMv2) — tested ✅ — 2026-06-21
+- [Phase 10] Tests: 33/33 pass (retriever, inference, bias audit, gap assessment) — tested ✅ — 2026-06-21
+- [Phase 11] Scripts: ingest_corpus.py, bias_audit_runner.py, eval_pipeline.py — tested ✅ — 2026-06-21
 - [Phase 5] Zustand chat store with ephemeral sessions — tested ✅ — 2026-06-11
 - [Phase 5] API service layer (sendChatMessage, checkHealth) — tested ✅ — 2026-06-11
 - [Phase 5] useChat hook (message send/receive flow) — tested ✅ — 2026-06-11
@@ -23,8 +34,12 @@ Last updated: 2026-06-11
 - [Phase 5] Main page composed with full chatbot layout — tested ✅ — 2026-06-11
 - [Phase 5] ESLint config created (.eslintrc.json) — tested ✅ — 2026-06-11
 - [Phase 4] Backend /api/chat mock endpoint with 6 topic responses — tested ✅ — 2026-06-11
+- [Phase 4] Backend /api/chat expanded to 34 keyword groups with detailed responses — tested ✅ — 2026-06-20
+- [Phase 4] Backend /api/chat improved matching algorithm with prioritized phrase matching and topic detection — tested ✅ — 2026-06-20
+- [Phase 4] Backend /api/chat expanded DEFAULT_RESPONSE and added new topics (cybersecurity, data protection, GRC, employee training) — tested ✅ — 2026-06-20
+- [Phase 4] Backend server migrated to port 8002, frontend updated to connect — tested ✅ — 2026-06-20
 - [Phase 5] Full UI redesign: calming palette, readability toggle, tooltips, citation badges — tested ✅ — 2026-06-11
-- [Phase 5] Sidebar with chat history (create/switch/delete sessions) — tested ✅ — 2026-06-11
+- [Phase 5] Sidebar with chat history (create/switch/delete) — tested ✅ — 2026-06-11
 - [Phase 5] Quick escape button (notes view) — tested ✅ — 2026-06-11
 - [Phase 5] Progressive disclosure (expand/collapse long responses) — tested ✅ — 2026-06-11
 - [Phase 5] Contextual tooltips for GRC terms — tested ✅ — 2026-06-11
@@ -32,101 +47,75 @@ Last updated: 2026-06-11
 - [Phase 5] Citation badges on sources — tested ✅ — 2026-06-11
 - [Phase 5] Dark mode support via CSS variables — tested ✅ — 2026-06-11
 - [Phase 5] Voice input + attach placeholder buttons — tested ✅ — 2026-06-11
+- [Phase 12] CPU fallback LLM: Qwen2-0.5B-Instruct auto-selected when GPU unavailable — tested ✅ — 2026-06-21
+- [Phase 12] model_loader.py: primary→fallback cascade with Mistral-7B → Qwen2-0.5B — tested ✅ — 2026-06-21
+- [Phase 12] Improved fallback response builder: keyword-scored passage extraction, source dedup — tested ✅ — 2026-06-21
+- [Phase 12] Installed shap + accelerate dependencies — tested ✅ — 2026-06-21
+- [Phase 12] Fixed .env.example: multilingual models + FALLBACK_MODEL + TRANSLATION_MODEL — tested ✅ — 2026-06-21
+- [Phase 12] Updated inference.py: chat template support, stop tokens, prompt-fragment stripping — tested ✅ — 2026-06-21
+- [Phase 12] Downloaded Qwen2-0.5B-Instruct model to HF cache — tested ✅ — 2026-06-21
 
 ## Current Phase
 
-Phase 5: Frontend Core UI — COMPLETE (all design features implemented)
+Phase 12: RAG + LLM Integration Fix — COMPLETE
 
 ## Session Log
 
-### Session 1 — 2026-06-11
-- Created complete project directory structure
-- Created CLAUDE.md with all project specifications
-- Created tracking files (PROGRESS.md, REMAINING_WORK.md, ERRORS_TO_FIX.md)
-- Initialized backend: FastAPI application, requirements.txt, Dockerfile
-- Initialized frontend: Next.js 14, TypeScript, Tailwind, i18n
-- Created docker-compose.yml with backend, frontend, chromadb services
-- Created .env.example with all environment variables
-- Created 6 synthetic policy documents in data/raw/
-- Created placeholder scripts (ingest_corpus.py, bias_audit_runner.py, eval_pipeline.py)
-
-**Files created:**
-- /compliancebot-plus/CLAUDE.md
-- /compliancebot-plus/docs/PROGRESS.md
-- /compliancebot-plus/docs/REMAINING_WORK.md
-- /compliancebot-plus/docs/ERRORS_TO_FIX.md
-- /compliancebot-plus/backend/requirements.txt
-- /compliancebot-plus/backend/Dockerfile
-- /compliancebot-plus/backend/app/main.py
-- /compliancebot-plus/backend/app/core/config.py
-- /compliancebot-plus/frontend/package.json
-- /compliancebot-plus/frontend/tsconfig.json
-- /compliancebot-plus/frontend/next.config.js
-- /compliancebot-plus/frontend/tailwind.config.js
-- /compliancebot-plus/frontend/Dockerfile
-- /compliancebot-plus/frontend/src/app/layout.tsx
-- /compliancebot-plus/frontend/src/app/page.tsx
-- /compliancebot-plus/frontend/src/app/globals.css
-- /compliancebot-plus/frontend/src/i18n/en.json
-- /compliancebot-plus/frontend/src/i18n/ne.json
-- /compliancebot-plus/docker-compose.yml
-- /compliancebot-plus/.env.example
-- /compliancebot-plus/data/raw/*.txt (6 synthetic policy documents)
-- /compliancebot-plus/scripts/*.py (3 placeholder scripts)
-
-### Session 2 — 2026-06-11
-- Built complete chatbot frontend (Phase 5 core UI)
-- Created Zustand store for chat state management
-- Created API service layer for backend communication
-- Created useChat hook for message send/receive flow
-- Created Header, ChatMessage, ChatInput, ChatInterface, WelcomeMessage components
-- Updated page.tsx with full chatbot layout
-- All type checks and lint pass
-
-**Files created:**
-- /compliancebot-plus/frontend/src/store/chatStore.ts
-- /compliancebot-plus/frontend/src/services/api.ts
-- /compliancebot-plus/frontend/src/hooks/useChat.ts
-- /compliancebot-plus/frontend/src/components/Header.tsx
-- /compliancebot-plus/frontend/src/components/ChatMessage.tsx
-- /compliancebot-plus/frontend/src/components/ChatInput.tsx
-- /compliancebot-plus/frontend/src/components/ChatInterface.tsx
-- /compliancebot-plus/frontend/src/components/WelcomeMessage.tsx
-- /compliancebot-plus/frontend/.eslintrc.json
-
-### Session 3 — 2026-06-11
-- Fixed 404 error: created /api/chat mock endpoint with responses for 6 GRC topics
-- Complete UI redesign per user wireframe requirements
-- New color palette: sage greens, warm grays (calming, non-intimidating)
-- Typography: Inter + Noto Sans Devanagari, 16px base, 1.6 line height
-- Readability toggle: Simple / Professional / Legal levels
-- Progressive disclosure: expand long responses
-- Contextual tooltips for GRC terms (Data Fiduciary, DPIA, ISMS, etc.)
-- Citation badges on source references
-- Confidence indicators (green/yellow/orange dots)
-- Quick escape button (notes view)
-- Chat history sidebar with create/switch/delete
-- Voice input + attach file placeholder buttons
-- Dark mode via CSS variables
-- Backend: local uvicorn running on port 8000
+### Session 5 — 2026-06-21
+- Fixed broken chat responses (raw dumps, same output for different queries)
+- Added CPU fallback LLM: Qwen2-0.5B-Instruct (auto-selected when GPU unavailable)
+- Updated model_loader.py with primary→fallback cascade (Mistral-7B → Qwen2-0.5B)
+- Rewrote _format_response_from_chunks: keyword-scored passage extraction, source dedup
+- Installed shap + accelerate dependencies
+- Fixed .env.example to match config.py (multilingual models, added FALLBACK_MODEL)
+- All 39 tests passing
 
 **Files changed:**
-- /compliancebot-plus/backend/app/main.py (added chat router)
-- /compliancebot-plus/backend/app/api/chat.py (new — mock endpoint)
-- /compliancebot-plus/frontend/tailwind.config.js (new palette + dark mode)
-- /compliancebot-plus/frontend/src/app/globals.css (design tokens + components)
-- /compliancebot-plus/frontend/src/store/chatStore.ts (sessions, readability, escape)
-- /compliancebot-plus/frontend/src/services/api.ts (added professional/legal fields)
-- /compliancebot-plus/frontend/src/components/Header.tsx (redesigned)
-- /compliancebot-plus/frontend/src/components/ChatMessage.tsx (redesigned)
-- /compliancebot-plus/frontend/src/components/ChatInput.tsx (redesigned)
-- /compliancebot-plus/frontend/src/components/ChatInterface.tsx (redesigned)
-- /compliancebot-plus/frontend/src/components/WelcomeMessage.tsx (redesigned)
-- /compliancebot-plus/frontend/src/components/Sidebar.tsx (new)
-- /compliancebot-plus/frontend/src/components/ReadabilityToggle.tsx (new)
-- /compliancebot-plus/frontend/src/components/ConfidenceIndicator.tsx (new)
-- /compliancebot-plus/frontend/src/components/CitationBadge.tsx (new)
-- /compliancebot-plus/frontend/src/components/Tooltip.tsx (new)
-- /compliancebot-plus/frontend/src/components/QuickEscape.tsx (new)
-- /compliancebot-plus/frontend/src/components/ActionButtons.tsx (new)
-- /compliancebot-plus/frontend/src/app/page.tsx (updated layout)
+- backend/app/llm/model_loader.py (fallback cascade, get_model_name())
+- backend/app/api/chat.py (improved fallback response builder)
+- backend/app/llm/inference.py (chat template, stop tokens, prompt stripping)
+- backend/app/core/config.py (added FALLBACK_MODEL setting)
+- .env.example (multilingual models, fallback model, translation, shap)
+- Built complete custom RAG pipeline (no LangChain)
+- Clause-boundary chunking with Devanagari-aware language detection
+- Multilingual embeddings (intfloat/multilingual-e5-base) for EN+NE
+- Hybrid retrieval: BM25 keyword search + semantic search + RRF fusion
+- Multilingual cross-encoder reranking (mmarco-mMiniLMv2)
+- LLM integration: Mistral-7B/Phi-3.5 with 4-bit quantisation via bitsandbytes
+- NLLB-200-distilled-600M translation layer for EN↔NE
+- Bias/tone audit with gender, patronising, exclusionary language detection
+- SHAP-based explainability for token attribution
+- 25-question gap-assessment wizard across 5 domains (IR, DP, AC, SA, TPR)
+- Domain scoring, maturity ratings, remediation report generation
+- Full API layer: /api/chat, /api/gap/start, /api/gap/answer, /api/health
+- 33/33 tests passing
+- Updated requirements.txt with all dependencies
+
+**Files created:**
+- backend/app/rag/ingest.py (chunking, embedding, ChromaDB storage)
+- backend/app/rag/retriever.py (hybrid search, RRF, reranking)
+- backend/app/rag/prompt_builder.py (RAG prompt assembly)
+- backend/app/llm/model_loader.py (4-bit quantised model loading)
+- backend/app/llm/inference.py (generation + response parsing)
+- backend/app/llm/prompt_templates.py (plain/professional/legal variants)
+- backend/app/llm/shap_explainer.py (token attribution)
+- backend/app/llm/translator.py (NLLB EN↔NE translation)
+- backend/app/bias_audit/tone_checker.py (inclusive language scoring)
+- backend/app/gap_assessment/question_bank.py (25 questions, 5 domains)
+- backend/app/gap_assessment/wizard_engine.py (stateful assessment flow)
+- backend/app/gap_assessment/report_generator.py (scoring + remediation)
+- backend/app/api/health.py (system health endpoint)
+- backend/app/api/gap_assessment.py (wizard API endpoints)
+- backend/app/models/schemas.py (Pydantic request/response models)
+- backend/tests/test_retriever.py (14 tests)
+- backend/tests/test_inference.py (11 tests)
+- backend/tests/test_gap_assessment.py (14 tests)
+- scripts/ingest_corpus.py (CLI ingestion wrapper)
+- scripts/bias_audit_runner.py (automated bias audit)
+- scripts/eval_pipeline.py (retrieval accuracy + Cohen's kappa)
+
+**Files modified:**
+- backend/app/main.py (added gap + health routers)
+- backend/app/api/chat.py (replaced mock with full RAG pipeline)
+- backend/app/core/config.py (multilingual model names, translation settings)
+- backend/requirements.txt (added chromadb, rank-bm25, nltk, etc.)

@@ -1,30 +1,34 @@
-"""Ingest policy documents into ChromaDB vector store.
+#!/usr/bin/env python3
+"""CLI script to ingest the policy corpus into ChromaDB.
 
-This script loads policy documents from data/raw/, chunks them,
-embeds them using sentence-transformers, and stores them in ChromaDB.
+Usage:
+    python scripts/ingest_corpus.py [--data-dir data/raw]
 """
+import sys
 import os
-from typing import List, Dict
-from pathlib import Path
+import argparse
+import logging
 
-# Placeholder for actual implementation
-# Will be implemented in Phase 1
+# Ensure backend is importable
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "backend"))
 
-def load_documents(data_dir: str) -> List[Dict]:
-    """Load documents from the raw data directory."""
-    raise NotImplementedError("Waiting for Phase 1 implementation")
+from app.rag.ingest import ingest_corpus
 
 
-def chunk_documents(documents: List[Dict], chunk_size: int = 512, overlap: int = 64) -> List[Dict]:
-    """Chunk documents with overlap for better retrieval."""
-    raise NotImplementedError("Waiting for Phase 1 implementation")
+def main():
+    parser = argparse.ArgumentParser(description="Ingest policy documents into ChromaDB")
+    parser.add_argument("--data-dir", default="data/raw", help="Directory containing .txt policy documents")
+    args = parser.parse_args()
 
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+    )
 
-def embed_and_store(chunks: List[Dict]) -> None:
-    """Embed chunks and store in ChromaDB."""
-    raise NotImplementedError("Waiting for Phase 1 implementation")
+    print(f"Ingesting corpus from: {args.data_dir}")
+    count = ingest_corpus(raw_dir=args.data_dir)
+    print(f"Done. {count} chunks stored in ChromaDB.")
 
 
 if __name__ == "__main__":
-    # Will be implemented in Phase 1
-    pass
+    main()

@@ -15,7 +15,15 @@ build/
 .venv/
 venv/
 env/
+
+# RAG / ML artifacts
 chroma_db/
+*.bin
+*.safetensors
+*.gguf
+
+# HuggingFace cache (models downloaded at runtime)
+.cache/huggingface/
 
 # Node / Frontend
 node_modules/
@@ -47,3 +55,4 @@ yarn-error.log*
 # Misc
 *.bak
 *.tmp
+microsoft.gpg
