@@ -237,13 +237,13 @@ Known Errors & Items to Verify
 Nepal's Cabinet endorsed this in August 2023 — the country's first dedicated cybersecurity policy. It established the National Cyber Security Center under MoCIT and introduced strategic objectives for protecting critical information infrastructure.
 
 ### Electronic Transactions Act 2063 (2006)
-The primary cybercrime law. Covers unauthorized access, data alteration, privacy violations. Penalty for privacy breach: up to 3 years imprisonment or NPR 30,000 fine (or both).
+The primary cybercrime law (Chapter 9, "Offence Relating To Computer", Sections 44-59). Covers unauthorized access (§45: fine up to NPR 200,000 or up to 3 years, or both), computer source code piracy/alteration (§44), and confidentiality breach by a person with authorized access (§48: fine up to NPR 10,000 or up to 2 years, or both). Note: the "3 years / NPR 30,000" penalty figure belongs to the Privacy Act 2075 (below), not this Act — do not conflate them.
 
 ### Cyber Security Bylaw 2077 (2020)
-Mandatory for all Telecoms/ISPs. Requires quarterly IS audits, 24x7 security monitoring, incident response teams. Monitored by NTA.
+Mandatory for all Telecoms/ISPs. Requires a 6-monthly internal security audit (Clause 53), penetration testing/vulnerability assessment every 3 months (Clause 54), an annual NTA-designated IS audit (Clause 55), 24x7 security monitoring (Clause 65), and an Incident Response team/CERT (Clause 58). Monitored by NTA.
 
 ### Individual Privacy Act 2075 (2018)
-Nepal's first privacy legislation. Covers personal data of individuals in Nepal.
+Nepal's first privacy legislation. Covers privacy of body, residence, property, document, data, correspondence, character, and electronic means (Chapters 2-9), plus collection/protection of personal information by public bodies (Chapter 10). Penalty for offences under the Act (§29(2)): imprisonment not exceeding 3 years, or a fine not exceeding NPR 30,000, or both.
 
 ### Data Act 2079 (2022)
 Additional data governance provisions.

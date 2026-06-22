@@ -40,15 +40,19 @@ def generate_response(
     str
         The generated response text.
     """
-    import torch
     from app.core.config import settings
+
+    max_tok = max_new_tokens or settings.MAX_NEW_TOKENS
+    temp = temperature if temperature is not None else settings.TEMPERATURE
+
+    if settings.USE_OLLAMA:
+        return _generate_with_ollama(prompt, max_tok, temp, top_p, repetition_penalty)
+
+    import torch
     from app.llm.model_loader import get_model, get_tokenizer
 
     model = get_model()
     tokenizer = get_tokenizer()
-
-    max_tok = max_new_tokens or settings.MAX_NEW_TOKENS
-    temp = temperature if temperature is not None else settings.TEMPERATURE
 
     messages = [{"role": "user", "content": prompt}]
     try:
@@ -87,6 +91,48 @@ def generate_response(
             response = response[:idx].strip()
 
     logger.info("Generated %d tokens", len(generated_ids))
+    return response
+
+
+def _generate_with_ollama(
+    prompt: str,
+    max_tokens: int,
+    temperature: float,
+    top_p: float,
+    repetition_penalty: float,
+) -> str:
+    """Generate a response via a local Ollama server instead of transformers."""
+    import httpx
+    from app.core.config import settings
+
+    resp = httpx.post(
+        f"{settings.OLLAMA_HOST}/api/generate",
+        json={
+            "model": settings.OLLAMA_MODEL,
+            "prompt": prompt,
+            "stream": False,
+            # Disable hidden chain-of-thought for hybrid reasoning models
+            # (e.g. qwen3.5) — without this, "thinking" tokens consume the
+            # whole num_predict budget and leave an empty "response" field.
+            "think": False,
+            "options": {
+                "num_predict": max_tokens,
+                "temperature": temperature,
+                "top_p": top_p,
+                "repeat_penalty": repetition_penalty,
+            },
+        },
+        timeout=120.0,
+    )
+    resp.raise_for_status()
+    response = resp.json().get("response", "").strip()
+
+    for marker in ["Assistant:", "assistant:", " ANSWER", "User question:"]:
+        idx = response.find(marker)
+        if idx > 0:
+            response = response[:idx].strip()
+
+    logger.info("Generated response via Ollama (%s)", settings.OLLAMA_MODEL)
     return response
 
 

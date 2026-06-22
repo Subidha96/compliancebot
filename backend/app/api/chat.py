@@ -13,6 +13,7 @@ from app.core.config import settings
 from app.models.schemas import (
     ChatRequest,
     ChatResponse,
+    ReadabilityLevel,
     SourceCitation,
 )
 
@@ -23,8 +24,65 @@ router = APIRouter(prefix="/api", tags=["chat"])
 # In-memory session store (ephemeral by design)
 _sessions: dict[str, dict] = {}
 
+# Verified official source URLs, keyed by document stem (the `source` field
+# in chunk metadata). Confirmed via direct lookup against the issuing body's
+# own site — do not add an entry here without verifying it first.
+_SOURCE_URLS: dict[str, str] = {
+    "iso_27001_2022_controls_summary": "https://www.iso.org/standard/27001",
+    "nist_csf_2_0_summary": "https://www.nist.gov/cyberframework",
+    "electronic_transactions_act_2063_key_clauses": "https://lawcommission.gov.np/content/13397/electronic--electronic--traded-international-act--2063/",
+    "nepal_cyber_security_policy_2023_summary": "https://mocit.gov.np/content/7119/7119-national-cyber-security-policy/",
+    "privacy_act_2075_summary": "https://lawcommission.gov.np/content/12261/12261-the-privacy-act-2075/",
+    "cyber_security_bylaw_2077_checklist": "https://nta.gov.np/uploads/contents/Cyber-Security-Bylaw-2077-2020.pdf",
+}
+
 # Lazy-loaded singletons (avoid import-time failures)
 _llm_available: Optional[bool] = None
+
+_GREETING_WORDS = {
+    "hi", "hello", "hey", "hiya", "yo", "namaste",
+    "thanks", "thank", "thankyou", "ty",
+    "bye", "goodbye", "ok", "okay", "k",
+}
+
+_GREETING_RESPONSE = (
+    "Hello! I'm ComplianceBot+, here to help you understand cybersecurity "
+    "governance, risk, and compliance (GRC) concepts, including Nepal cyber "
+    "law, ISO 27001, and NIST CSF, in plain language. Ask me about a "
+    "specific topic, like \"What is ISO 27001?\" or \"What does the "
+    "Electronic Transactions Act say about data privacy?\", or start the "
+    "gap assessment wizard to check your organisation's compliance posture."
+)
+
+
+def _strip_em_dash(text: Optional[str]) -> Optional[str]:
+    """Replace em dashes with a comma/hyphen so they never reach the user.
+
+    Project style rule: no '—' in any chatbot-facing response text.
+    """
+    if not text:
+        return text
+    return text.replace(" — ", ", ").replace("—", "-")
+
+
+def _is_greeting(query: str) -> bool:
+    """Detect trivial greetings/chitchat that don't need RAG + LLM generation."""
+    words = query.lower().strip(" !.?").split()
+    return len(words) <= 3 and all(w.strip(",!.?") in _GREETING_WORDS for w in words)
+
+
+def _max_tokens_for_query(query: str) -> int:
+    """Scale generation length to the query's apparent complexity.
+
+    Short greetings/simple questions don't need a 1024-token essay —
+    this keeps latency proportional to what was actually asked.
+    """
+    word_count = len(query.split())
+    if word_count <= 6:
+        return 320
+    if word_count <= 15:
+        return 384
+    return settings.MAX_NEW_TOKENS
 
 
 def _get_or_create_session(session_id: Optional[str]) -> str:
@@ -49,14 +107,6 @@ def _check_llm_available() -> bool:
         _llm_available = False
         logger.warning("LLM not available (%s) — using retrieval-only mode", e)
     return _llm_available
-
-
-def _build_context_block(chunks: list[dict]) -> str:
-    """Build the context string from retrieved chunks."""
-    return "\n\n".join(
-        f"[Source: {c['metadata']['source']}, {c['metadata']['section']}]\n{c['text']}"
-        for c in chunks
-    )
 
 
 def _format_response_from_chunks(query: str, chunks: list[dict]) -> str:
@@ -140,20 +190,6 @@ def _format_response_from_chunks(query: str, chunks: list[dict]) -> str:
     return f"{answer}\n\nSources: {sources_str}"
 
 
-def _build_plain_language(chunks: list[dict]) -> str:
-    """Extract the most accessible chunk as plain-language version."""
-    for c in chunks:
-        text = c["text"].strip()
-        # Prefer shorter, simpler chunks
-        if len(text) < 600:
-            return f"[{c['metadata']['source']}]\n{text}"
-    # Fallback: truncate the first chunk
-    if chunks:
-        text = chunks[0]["text"].strip()
-        return f"[{chunks[0]['metadata']['source']}]\n{text[:500]}..."
-    return ""
-
-
 @router.post("/chat", response_model=ChatResponse)
 async def chat(request: ChatRequest) -> ChatResponse:
     """Process a chat message through the RAG pipeline.
@@ -167,6 +203,18 @@ async def chat(request: ChatRequest) -> ChatResponse:
     if not query:
         raise HTTPException(status_code=400, detail="Message cannot be empty")
 
+    if _is_greeting(query):
+        return ChatResponse(
+            response=_GREETING_RESPONSE,
+            mode=request.mode,
+            confidence="high",
+            confidence_score=1.0,
+            sources=[],
+            source_citations=[],
+            session_id=session_id,
+            bias_audit_passed=True,
+        )
+
     try:
         # 1. Retrieve relevant chunks
         from app.rag.retriever import retrieve
@@ -179,9 +227,7 @@ async def chat(request: ChatRequest) -> ChatResponse:
                     "Could you rephrase, or ask about a specific Nepal cybersecurity regulation, "
                     "ISO 27001 control, or NIST CSF topic?"
                 ),
-                plain_language="Try asking about topics like: ISO 27001, Nepal cyber laws, data protection, access controls, or incident response.",
-                professional="No relevant corpus entries found for this query. Consider rephrasing or consulting official sources.",
-                legal="The knowledge base does not contain sufficient information to provide a legally grounded response.",
+                mode=request.mode,
                 confidence="low",
                 confidence_score=0.0,
                 sources=[],
@@ -190,31 +236,33 @@ async def chat(request: ChatRequest) -> ChatResponse:
                 bias_audit_passed=True,
             )
 
-        # 2. Build source citations
+        # 2. Build source citations (with verified official links where known)
         source_citations = [
             SourceCitation(
                 source=c["metadata"]["source"],
                 section=c["metadata"]["section"],
                 confidence=c.get("confidence", 0.5),
+                url=_SOURCE_URLS.get(c["metadata"]["source"]),
             )
             for c in chunks
         ]
         source_names = list({c["metadata"]["source"] for c in chunks})
+        source_urls = list({_SOURCE_URLS[s] for s in source_names if s in _SOURCE_URLS})
 
         # 3. Check if LLM is available
         llm_ready = _check_llm_available()
 
         if llm_ready:
-            # Full pipeline: LLM generation
-            response_text, plain, prof, legal, confidence, shap_summary, bias_passed = (
-                _generate_with_llm(query, chunks)
+            # Generate a single answer, directly in the session's locked mode
+            # (default/simple/professional/legal) — no other mode is ever
+            # generated for this turn. Switching modes requires a new chat.
+            response_text, confidence, shap_summary, bias_passed = (
+                await _generate_main_answer(query, chunks, request.mode)
             )
         else:
-            # Fallback: format directly from retrieved chunks
+            # Fallback: format directly from retrieved chunks (mode-agnostic,
+            # since there's no LLM available to rewrite for a given mode).
             response_text = _format_response_from_chunks(query, chunks)
-            plain = _build_plain_language(chunks)
-            prof = response_text
-            legal = _build_context_block(chunks)
             confidence = "medium"
             shap_summary = None
             bias_passed = True
@@ -226,16 +274,14 @@ async def chat(request: ChatRequest) -> ChatResponse:
         if query_lang == "ne" and settings.TRANSLATE_OUTPUT and llm_ready:
             from app.llm.translator import translate
             response_text = translate(response_text, source_lang="en", target_lang="ne")
-            plain = translate(plain, source_lang="en", target_lang="ne") if plain else ""
 
         return ChatResponse(
-            response=response_text,
-            plain_language=plain,
-            professional=prof,
-            legal=legal,
+            response=_strip_em_dash(response_text),
+            mode=request.mode,
             confidence=confidence,
             confidence_score=chunks[0].get("confidence", 0.5) if chunks else 0.5,
             sources=source_names,
+            source_urls=source_urls,
             source_citations=source_citations,
             session_id=session_id,
             shap_summary=shap_summary,
@@ -250,29 +296,40 @@ async def chat(request: ChatRequest) -> ChatResponse:
         )
 
 
-def _generate_with_llm(query: str, chunks: list[dict]) -> tuple:
-    """Run the full LLM generation pipeline.
+async def _generate_main_answer(
+    query: str, chunks: list[dict], mode: ReadabilityLevel
+) -> tuple:
+    """Generate the single answer for this turn, directly in `mode`.
 
-    Returns (response, plain, professional, legal, confidence, shap_summary, bias_passed)
+    Returns (response, confidence, shap_summary, bias_passed)
     """
+    import asyncio
+
     from app.rag.prompt_builder import build_rag_prompt
     from app.llm.inference import generate_response, parse_response
+    from app.bias_audit.tone_checker import audit_response, rewrite_biased_response
     from app.llm.prompt_templates import (
         plain_language_prompt,
         professional_prompt,
         legal_prompt,
     )
-    from app.bias_audit.tone_checker import audit_response, rewrite_biased_response
 
-    # Build prompt and generate
+    # Scale generation length to query complexity — short questions don't
+    # need a 1024-token essay, and this keeps latency proportional to the ask.
+    max_tok = _max_tokens_for_query(query)
     base_prompt = build_rag_prompt(query, chunks)
-    raw_response = generate_response(base_prompt)
-    parsed = parse_response(raw_response)
 
-    # Generate readability variants
-    plain = generate_response(plain_language_prompt(base_prompt), max_new_tokens=512)
-    prof = generate_response(professional_prompt(base_prompt), max_new_tokens=512)
-    legal = generate_response(legal_prompt(base_prompt), max_new_tokens=512)
+    mode_prompt_fn = {
+        ReadabilityLevel.SIMPLE: plain_language_prompt,
+        ReadabilityLevel.PROFESSIONAL: professional_prompt,
+        ReadabilityLevel.LEGAL: legal_prompt,
+    }.get(mode)
+    prompt = mode_prompt_fn(base_prompt) if mode_prompt_fn else base_prompt
+
+    # Run off the event loop — generate_response() makes a synchronous
+    # HTTP/torch call and would otherwise block all other requests.
+    raw_response = await asyncio.to_thread(generate_response, prompt, max_new_tokens=max_tok)
+    parsed = parse_response(raw_response)
 
     # Bias audit
     audit = audit_response(parsed["answer"])
@@ -291,9 +348,6 @@ def _generate_with_llm(query: str, chunks: list[dict]) -> tuple:
 
     return (
         parsed["answer"],
-        plain,
-        prof,
-        legal,
         parsed["confidence"],
         shap_summary,
         audit.passed,

@@ -57,14 +57,18 @@ def load_text_files(raw_dir: str) -> list[tuple[str, str]]:
 # ---------------------------------------------------------------------------
 
 _SECTION_PATTERN = re.compile(
-    r"(?=(?:Section|Clause|Article|Bylaw|Article)\s+\d+[\.\d]*|धारा\s*[\d०-९]+)",
-    re.IGNORECASE,
+    r"(?=^(?:Section|Clause|Article|Bylaw)\s+\d+[\.\d]*|^धारा\s*[\d०-९]+|^\d+\.\s+[A-Z])",
+    re.IGNORECASE | re.MULTILINE,
 )
 
 _LABEL_PATTERN = re.compile(
     r"((?:Section|Clause|Article|Bylaw)\s+[\d\.]+|धारा\s*[\d०-९]+)",
     re.IGNORECASE,
 )
+
+# Numbered all-caps headings used by the synthetic corpus, e.g.
+# "1. ORGANIZATIONAL CONTROLS (A.5)" — the real, human-readable section title.
+_HEADING_PATTERN = re.compile(r"^\d+\.\s+(.+?)\s*$", re.MULTILINE)
 
 # For splitting long chunks that exceed max_chunk_chars
 _SENTENCE_SPLIT = re.compile(r"(?<=[.!?।])\s+")
@@ -107,7 +111,11 @@ def chunk_by_clause(
     chunks: list[Chunk] = []
     for i, section_text in enumerate(raw_sections):
         label_match = _LABEL_PATTERN.match(section_text)
-        section_label = label_match.group(1) if label_match else f"part-{i + 1}"
+        if label_match:
+            section_label = label_match.group(1)
+        else:
+            heading_match = _HEADING_PATTERN.match(section_text)
+            section_label = heading_match.group(1).strip() if heading_match else f"part-{i + 1}"
 
         if len(section_text) > max_chunk_chars:
             sub_chunks = _split_long_text(section_text, max_chunk_chars, overlap)

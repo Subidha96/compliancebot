@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import type { ChatMessage as ChatMessageType, ReadabilityLevel } from '@/store/chatStore';
+import type { ChatMessage as ChatMessageType } from '@/store/chatStore';
 import { useChatStore } from '@/store/chatStore';
 import ConfidenceIndicator from '@/components/ConfidenceIndicator';
 import ActionButtons from '@/components/ActionButtons';
@@ -19,21 +19,12 @@ function highlightTerms(text: string): React.ReactNode[] {
   });
 }
 
-function getMessageContent(message: ChatMessageType, level: ReadabilityLevel): string {
-  switch (level) {
-    case 'simple': return message.plainLanguage || message.content;
-    case 'professional': return message.professional || message.content;
-    case 'legal': return message.legal || message.content;
-    default: return message.content;
-  }
-}
-
 export default function ChatMessageBubble({ message }: { message: ChatMessageType }) {
   const isUser = message.role === 'user';
-  const { readabilityLevel, language, darkMode } = useChatStore();
+  const { language, darkMode } = useChatStore();
   const [expanded, setExpanded] = useState(false);
 
-  const content = getMessageContent(message, readabilityLevel);
+  const content = message.content;
   const hasMore = !isUser;
   const shortContent = content.split('\n').slice(0, 2).join('\n');
   const needsExpand = hasMore && content.split('\n').length > 3 && !expanded;
@@ -77,23 +68,28 @@ export default function ChatMessageBubble({ message }: { message: ChatMessageTyp
           </button>
         )}
 
-        {!isUser && message.sourceUrls && message.sourceUrls.length > 0 && (
-          <div className={`flex flex-wrap gap-1.5 mt-3 pt-3 border-t ${darkMode ? 'border-gray-700' : 'border-warmgray-100'}`}>
-            {message.sources?.map((src, i) => (
+        {!isUser && message.sourceCitations && message.sourceCitations.length > 0 && (
+          <div className={`flex flex-col gap-1.5 mt-3 pt-3 border-t ${darkMode ? 'border-gray-700' : 'border-warmgray-100'}`}>
+            {message.sourceCitations.map((c, i) => (
               <a
-                key={src}
-                href={message.sourceUrls?.[i] || '#'}
-                target="_blank"
+                key={`${c.source}-${i}`}
+                href={c.url || '#'}
+                target={c.url ? '_blank' : undefined}
                 rel="noopener noreferrer"
-                className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium transition-colors ${
-                  darkMode ? 'bg-purple-900/50 text-purple-300 hover:bg-purple-800/50' : 'bg-lavender-100 text-lavender-500 hover:bg-lavender-200'
+                className={`inline-flex items-center gap-1.5 px-2 py-1 rounded-lg text-xs transition-colors ${
+                  c.url
+                    ? darkMode ? 'bg-purple-900/50 text-purple-300 hover:bg-purple-800/50' : 'bg-lavender-100 text-lavender-500 hover:bg-lavender-200'
+                    : darkMode ? 'bg-gray-700/50 text-gray-400 cursor-default' : 'bg-warmgray-100 text-warmgray-500 cursor-default'
                 }`}
-                title={src}
+                title={c.url ? 'Open verified official source' : 'No verified official link available for this document'}
+                onClick={(e) => { if (!c.url) e.preventDefault(); }}
               >
-                <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <svg className="w-3 h-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m9.86-2.813a4.5 4.5 0 00-6.364 0l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
                 </svg>
-                {src.length > 35 ? src.slice(0, 35) + '...' : src}
+                <span className="font-medium">{c.source}</span>
+                <span className="opacity-70">— {c.section}</span>
+                <span className="opacity-50">({Math.round(c.confidence * 100)}%)</span>
               </a>
             ))}
           </div>

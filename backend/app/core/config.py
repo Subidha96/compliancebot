@@ -21,6 +21,11 @@ class Settings(BaseSettings):
     MAX_NEW_TOKENS: int = 1024
     TEMPERATURE: float = 0.7
 
+    # Ollama backend (local inference via Ollama server instead of transformers)
+    USE_OLLAMA: bool = False
+    OLLAMA_HOST: str = "http://localhost:11434"
+    OLLAMA_MODEL: str = "qwen3.5:2b"
+
     # RAG Configuration — multilingual models
     EMBEDDING_MODEL: str = "intfloat/multilingual-e5-base"
     RERANKER_MODEL: str = "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1"

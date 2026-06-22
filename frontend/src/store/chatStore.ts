@@ -1,17 +1,26 @@
 import { create } from 'zustand';
 
-export type ReadabilityLevel = 'simple' | 'professional' | 'legal';
+// The readability mode is chosen once when a chat session is created and
+// locked for that session's entire lifetime — every message in that session
+// is answered solely in this mode. To get a different mode, the user starts
+// a new chat.
+export type ReadabilityLevel = 'default' | 'simple' | 'professional' | 'legal';
+
+export interface SourceCitation {
+  source: string;
+  section: string;
+  confidence: number;
+  url?: string;
+}
 
 export interface ChatMessage {
   id: string;
   role: 'user' | 'assistant';
   content: string;
-  plainLanguage?: string;
-  professional?: string;
-  legal?: string;
   confidence?: 'high' | 'medium' | 'low';
   sources?: string[];
   sourceUrls?: string[];
+  sourceCitations?: SourceCitation[];
   timestamp: Date;
   fileName?: string;
   fileUrl?: string;
@@ -22,6 +31,7 @@ export interface ChatSession {
   title: string;
   messages: ChatMessage[];
   createdAt: Date;
+  mode: ReadabilityLevel;
 }
 
 interface ChatState {
@@ -33,6 +43,8 @@ interface ChatState {
   language: 'en' | 'ne';
   sessionId: string | null;
   error: string | null;
+  // The mode picked in the UI for the *next* chat to be created. Once a
+  // session exists, its locked mode lives on the ChatSession itself.
   readabilityLevel: ReadabilityLevel;
   sidebarOpen: boolean;
   escaped: boolean;
@@ -55,6 +67,7 @@ interface ChatState {
   toggleDarkMode: () => void;
   setUsername: (name: string) => void;
   clearMessages: () => void;
+  activeSessionMode: () => ReadabilityLevel;
 }
 
 const generateId = (): string => crypto.randomUUID?.() ?? Math.random().toString(36).slice(2);
@@ -73,7 +86,7 @@ export const useChatStore = create<ChatState>((set, get) => ({
   language: 'en',
   sessionId: null,
   error: null,
-  readabilityLevel: 'simple',
+  readabilityLevel: 'default',
   sidebarOpen: false,
   escaped: false,
   darkMode: true,
@@ -86,11 +99,13 @@ export const useChatStore = create<ChatState>((set, get) => ({
       title: 'New chat',
       messages: [],
       createdAt: new Date(),
+      mode: get().readabilityLevel,
     };
     set((state) => ({
       sessions: [session, ...state.sessions],
       activeSessionId: id,
       messages: [],
+      sessionId: null,
       error: null,
     }));
   },
@@ -100,6 +115,7 @@ export const useChatStore = create<ChatState>((set, get) => ({
     set({
       activeSessionId: id,
       messages: session?.messages ?? [],
+      readabilityLevel: session?.mode ?? get().readabilityLevel,
       error: null,
     });
   },
@@ -137,7 +153,7 @@ export const useChatStore = create<ChatState>((set, get) => ({
               : s
           )
         : [
-            { id: activeId, title: generateTitle(content), messages: [msg], createdAt: new Date() },
+            { id: activeId, title: generateTitle(content), messages: [msg], createdAt: new Date(), mode: state.readabilityLevel },
             ...state.sessions,
           ];
 
@@ -180,4 +196,12 @@ export const useChatStore = create<ChatState>((set, get) => ({
   toggleDarkMode: () => set((state) => ({ darkMode: !state.darkMode })),
   setUsername: (username) => set({ username }),
   clearMessages: () => set({ messages: [], sessionId: null, error: null }),
+
+  // The mode actually in force for the active session — falls back to the
+  // picker value when no session has been created yet.
+  activeSessionMode: () => {
+    const state = get();
+    const session = state.sessions.find((s) => s.id === state.activeSessionId);
+    return session?.mode ?? state.readabilityLevel;
+  },
 }));

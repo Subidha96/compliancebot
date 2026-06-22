@@ -14,18 +14,25 @@ class Language(str, Enum):
 
 
 class ReadabilityLevel(str, Enum):
+    DEFAULT = "default"
     SIMPLE = "simple"
     PROFESSIONAL = "professional"
     LEGAL = "legal"
 
 
 class ChatRequest(BaseModel):
-    """Incoming chat message."""
+    """Incoming chat message.
+
+    `mode` is chosen once by the frontend when a chat session is created
+    and sent unchanged on every turn of that session — the backend
+    generates a single response in that mode only. Switching modes
+    requires starting a new chat (new session_id).
+    """
     message: str = Field(..., min_length=1, max_length=2000)
     session_id: Optional[str] = None
     language: Language = Language.EN
     private_mode: bool = True
-    readability_level: ReadabilityLevel = ReadabilityLevel.SIMPLE
+    mode: ReadabilityLevel = ReadabilityLevel.DEFAULT
 
 
 class SourceCitation(BaseModel):
@@ -33,17 +40,18 @@ class SourceCitation(BaseModel):
     source: str
     section: str
     confidence: float = Field(ge=0.0, le=1.0)
+    url: Optional[str] = None
 
 
 class ChatResponse(BaseModel):
-    """Response sent back to the frontend."""
+    """Response sent back to the frontend — a single answer in the
+    session's locked readability mode."""
     response: str
-    plain_language: Optional[str] = None
-    professional: Optional[str] = None
-    legal: Optional[str] = None
+    mode: ReadabilityLevel = ReadabilityLevel.DEFAULT
     confidence: str = "medium"
     confidence_score: float = Field(ge=0.0, le=1.0, default=0.5)
     sources: list[str] = []
+    source_urls: list[str] = []
     source_citations: list[SourceCitation] = []
     session_id: str
     shap_summary: Optional[str] = None

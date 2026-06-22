@@ -10,7 +10,6 @@ export function useChat() {
     isLoading,
     isPrivateMode,
     language,
-    sessionId,
     error,
     addUserMessage,
     addAssistantMessage,
@@ -27,10 +26,11 @@ export function useChat() {
       setLoading(true);
       setError(null);
 
-      // Read language directly from store to avoid stale closure
+      // Read language/mode directly from store to avoid stale closure
       const currentLanguage = useChatStore.getState().language;
       const currentPrivateMode = useChatStore.getState().isPrivateMode;
       const currentSessionId = useChatStore.getState().sessionId;
+      const currentMode = useChatStore.getState().activeSessionMode();
 
       try {
         const response = await sendChatMessage({
@@ -38,6 +38,7 @@ export function useChat() {
           session_id: currentSessionId ?? undefined,
           language: currentLanguage,
           private_mode: currentPrivateMode,
+          mode: currentMode,
         });
 
         if (!currentSessionId && response.session_id) {
@@ -46,12 +47,10 @@ export function useChat() {
 
         addAssistantMessage({
           content: response.response,
-          plainLanguage: response.plain_language,
-          professional: response.professional,
-          legal: response.legal,
           confidence: response.confidence,
           sources: response.sources,
           sourceUrls: response.source_urls,
+          sourceCitations: response.source_citations,
         });
       } catch (err) {
         const message = err instanceof Error ? err.message : 'Failed to get response';

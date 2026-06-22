@@ -1,20 +1,29 @@
 const API_BASE = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8002';
 
+export type ReadabilityMode = 'default' | 'simple' | 'professional' | 'legal';
+
 export interface ChatRequest {
   message: string;
   session_id?: string;
   language: 'en' | 'ne';
   private_mode: boolean;
+  mode: ReadabilityMode;
+}
+
+export interface SourceCitation {
+  source: string;
+  section: string;
+  confidence: number;
+  url?: string;
 }
 
 export interface ChatResponse {
   response: string;
-  plain_language?: string;
-  professional?: string;
-  legal?: string;
+  mode: ReadabilityMode;
   confidence: 'high' | 'medium' | 'low';
   sources: string[];
   source_urls: string[];
+  source_citations: SourceCitation[];
   session_id: string;
 }
 

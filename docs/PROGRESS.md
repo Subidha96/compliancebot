@@ -1,6 +1,6 @@
 # ComplianceBot+ Progress Log
 
-Last updated: 2026-06-21
+Last updated: 2026-06-22 (Session 8)
 
 ## Completed Features
 
@@ -54,12 +54,63 @@ Last updated: 2026-06-21
 - [Phase 12] Fixed .env.example: multilingual models + FALLBACK_MODEL + TRANSLATION_MODEL — tested ✅ — 2026-06-21
 - [Phase 12] Updated inference.py: chat template support, stop tokens, prompt-fragment stripping — tested ✅ — 2026-06-21
 - [Phase 12] Downloaded Qwen2-0.5B-Instruct model to HF cache — tested ✅ — 2026-06-21
+- [Phase 13] Ollama backend integration: config.USE_OLLAMA/OLLAMA_HOST/OLLAMA_MODEL, model_loader.get_model()/get_tokenizer() Ollama-aware sentinel path, inference._generate_with_ollama() — tested ✅ — 2026-06-22
+- [Phase 14] Greeting short-circuit + adaptive token budget: chat.py now detects trivial greetings (hi/hello/thanks/bye) and returns instantly without hitting RAG/LLM; real queries scale max_new_tokens to query word count instead of always using the 1024-token default — tested ✅ — 2026-06-22
 
 ## Current Phase
 
-Phase 12: RAG + LLM Integration Fix — COMPLETE
+Phase 12: RAG + LLM Integration Fix — COMPLETE (now independently verified, see Session 6)
 
 ## Session Log
+
+### Session 8 — 2026-06-22
+- User rejected the Session 7 lazy-variant architecture: a global per-message toggle still let any message be viewed in any of the 4 readability modes (even retroactively), generating a different mode on demand mid-conversation
+- New explicit rule: readability mode (default/simple/professional/legal) is chosen once and locked for an entire chat session. The backend generates a single answer solely in that mode. No other mode is ever generated for that session's messages. To get a different mode, the user must start a new chat.
+- Backend (`app/models/schemas.py`, `app/api/chat.py`): `ChatRequest.readability_level` replaced with `ChatRequest.mode` (default/simple/professional/legal, sent on every turn); `ChatResponse` simplified to a single `response` + echoed `mode` field — removed `plain_language`/`professional`/`legal`/`message_id`. `_generate_main_answer()` now selects the mode's prompt template (`plain_language_prompt`/`professional_prompt`/`legal_prompt`/none) and generates exactly one completion. Deleted the now-dead `POST /api/chat/variant` endpoint, `ChatVariantRequest`/`ChatVariantResponse` schemas, the per-session `contexts` cache, and the unused `_build_plain_language`/`_build_context_block` helpers.
+- Frontend: `ChatSession` (`chatStore.ts`) now carries a `mode` field set once at `createSession()` time from the current `readabilityLevel` picker value. Removed all per-message variant fields (`plainLanguage`, `professional`, `legal`, `sessionId`, `serverMessageId`, `loadingVariant`) from `ChatMessage` and the `setMessageVariant`/`setMessageVariantLoading` actions. `useChat.ts` sends the active session's locked mode (`activeSessionMode()`) on every request instead of always sending a generic default. `ChatMessage.tsx` dropped the lazy-fetch `useEffect`/`hasVariant`/`getMessageContent`/`toVariant` logic entirely — a message just renders `message.content`. `ReadabilityToggle.tsx` repurposed as a mode picker that's enabled only before a session's first message; once the active session has messages it shows as locked with a "start a new chat to change mode" hint.
+- Removed `fetchChatVariant`/`ChatVariantRequest`/`ChatVariantResponse` from `api.ts`; `ChatRequest` now carries `mode`, `ChatResponse` simplified to match the backend.
+- Verified: `npx tsc --noEmit` clean; `pytest -q` 39/39 passed; live curl with `"mode":"legal"` against a running backend (Ollama qwen3.5:2b) returned a single legal-register answer with `"mode":"legal"` echoed back — no other mode generated.
+- Not yet done: live browser click-through of "new chat -> pick mode -> send messages -> mode stays locked -> new chat to switch" (no browser-automation tool available this session; verified via code review + curl + tsc only).
+
+### Session 7 — 2026-06-22
+- User reported the frontend felt "stuck"/slow with poor answers and no sources vs. fast terminal curl tests for the same query
+- Root cause: each `/api/chat` request eagerly generated 4 full LLM completions (main answer + plain/professional/legal variants) sequentially, blocking the event loop
+- User explicitly ruled out switching to a cloud LLM API (stays local-only per CLAUDE.md) and asked for speed + genuine verified citation links instead
+- Implemented lazy/on-demand variant generation: `/api/chat` now only generates the main answer eagerly; `POST /api/chat/variant` (new endpoint) generates plain/professional/legal variants on demand, reusing a session-scoped in-memory cache of `{query, chunks}` keyed by `message_id` (ephemeral, cleared with the session)
+- Added verified official source-URL map (`_SOURCE_URLS` in `chat.py`) — each URL confirmed via WebSearch against the issuing body's own site before hardcoding (ISO, NIST, Nepal Law Commission, MoCIT, NTA). `SourceCitation` now carries an optional `url`; frontend renders citations as clickable links only when a verified URL exists, with a "no verified link available" state otherwise (no invented URLs)
+- Switched default Ollama model `qwen3.5:2b` (smaller/faster than `mistral:latest`) — but this introduced a regression: empty `response` text with full latency (58s)
+- Diagnosed regression: `qwen3.5:2b` is a hybrid reasoning model that, by default, spends the entire `num_predict` token budget on hidden chain-of-thought (`"thinking"` field) before it can emit the actual `"response"` field — so the budget was exhausted before any answer text was produced. Confirmed via raw Ollama API testing.
+- Fix: added `"think": false` to the Ollama `/api/generate` request body in `_generate_with_ollama()` (`backend/app/llm/inference.py`) — disables hidden reasoning tokens, restoring full-length real answers in ~50s
+- Verified end-to-end: live `/api/chat` request for "What is ISO 27001?" now returns a substantive, well-cited answer with verified source URLs; `pytest -q` 39/39 passed
+- Frontend: extended `ChatMessage`/Zustand store/`api.ts`/`useChat.ts`/`ChatMessageBubble` to carry `sourceCitations`, `sessionId`, `serverMessageId`, lazy-variant loading state and fetch-on-toggle behaviour; verified via `tsc --noEmit` (clean)
+- Not yet done: live UI test of the readability-level toggle actually triggering `/api/chat/variant` in the browser (only type-checked so far, frontend dev server was not running at session end)
+- User flagged that the 6 corpus documents in `data/raw/` were thin (~40 lines each) and questioned whether the hardcoded `_SOURCE_URLS` map could keep up with "unexpected" user questions. Clarified the corpus is closed/finite by design (RAG only ever cites these 6 sources or returns "I don't have enough information") — but investigating surfaced a much bigger problem: all 6 files were synthetic placeholder text with specifics that were invented, not sourced (see ERROR-012)
+- Re-sourced all 6 `data/raw/` documents from official originals (Nepal Law Commission, MoCIT, NTA gov.np PDFs; NIST CSWP 29 public-domain text; verified ISO 27001:2022 Annex A control titles) — each file now quotes verbatim section/clause text with real numbers instead of fabricated summaries
+- Discovered and corrected a factual error inherited from CLAUDE.md: the "3 years imprisonment / NPR 30,000 fine" penalty is from the Privacy Act 2075 §29(2), not the Electronic Transactions Act 2063 as CLAUDE.md's Nepal Regulatory Landscape section states (ETA's own confidentiality-breach penalty, §48, is NPR 10,000/2 years) — logged as an action item in ERROR-012 to fix CLAUDE.md
+- Re-ingested corpus (44 chunks, up from 40), restarted backend, verified live query against the corrected Privacy Act text returns the accurate penalty with correct citation; 39/39 tests pass
+
+### Session 6 — 2026-06-22
+- Verified RAG/ML pipeline actually runs end-to-end (it had never been installed/run before this session, despite docs claiming completion — see ERROR-008)
+- `pip install -r requirements.txt` (torch, chromadb, transformers, sentence-transformers, rank-bm25 were all missing)
+- Ran `scripts/ingest_corpus.py` — 41 chunks from 6 source documents embedded into ChromaDB (multilingual-e5-base)
+- `pytest`: 39/39 tests pass (was 17/39 failing before deps install + ingestion)
+- Started uvicorn server, hit `/api/health` (model_loaded: true, chromadb_connected: true, corpus_size: 41) and `/api/chat` live with a real query ("What is ISO 27001?") — got a coherent, source-cited, grounded answer using the Qwen2-0.5B-Instruct CPU fallback model
+- Found and logged ERROR-009: SHAP explainability throws on every real call (model output row mismatch) — caught internally, doesn't break chat, but Phase 6 deliverable is not functional
+- Found and logged ERROR-008: deps were installed into the global pip environment (no project venv exists), causing a dependency conflict with an unrelated local project ("jarvis-ui"). Recommend creating a project-local venv before further work.
+- Note: CPU generation is slow — a single /api/chat call (4 sequential generations: answer/plain/professional/legal) took ~90s on Qwen2-0.5B-Instruct CPU. A direct HF/transformers download of Mistral-7B-Instruct-v0.3 was attempted (~14GB, no GPU/bitsandbytes) and killed partway through to avoid wasting bandwidth/disk, once it was discovered the user already had `mistral:latest` (Q4_K_M GGUF, 4.4GB) running locally via Ollama.
+- Added an Ollama backend path (additive, does not remove the existing transformers path) so the project can use the user's already-running Ollama models instead of re-downloading raw HF weights:
+  - `backend/app/core/config.py`: added `USE_OLLAMA`, `OLLAMA_HOST` (default `http://localhost:11434`), `OLLAMA_MODEL` (default `mistral:latest`)
+  - `backend/app/llm/model_loader.py`: `get_model()`/`get_tokenizer()` now check `settings.USE_OLLAMA` and short-circuit to an Ollama health ping instead of loading transformers weights
+  - `backend/app/llm/inference.py`: `generate_response()` branches to new `_generate_with_ollama()` (calls `POST /api/generate` on the Ollama server) when `USE_OLLAMA` is set
+  - Verified live: `USE_OLLAMA=true uvicorn ...` → `/api/health` responds instantly (`model_loaded: true`) and `/api/chat` ("What is ISO 27001?") returned a high-quality, source-cited answer in ~193s (4 sequential generations on CPU-bound Ollama, no GPU configured in Ollama either — this is still slow, just not multi-GB-download slow)
+  - SHAP explainability fails under Ollama too (different error: "masker cannot be None") — same ERROR-009, not backend-specific
+- User-reported UX issue: "hi" triggered a full RAG retrieval + 4x LLM generation, returning a long, irrelevant NIST CSF dump after several minutes. Fixed:
+  - `backend/app/api/chat.py`: added `_is_greeting()` detector + canned `_GREETING_RESPONSE` — trivial greetings/chitchat (hi, hello, thanks, bye, etc.) now short-circuit before retrieval/LLM, responding in milliseconds
+  - Added `_max_tokens_for_query()` — scales `max_new_tokens` by query word count (≤6 words → 320, ≤15 → mid-tier, else `settings.MAX_NEW_TOKENS`) instead of always requesting the full 1024-token budget for every query regardless of complexity
+  - `_generate_with_llm()` now passes the scaled budget through to the main answer and a `variant_tok = max(160, max_tok // 2)` floor for the plain/professional/legal variants (first attempt at 96 floor caused mid-sentence truncation — bumped to 160)
+  - Verified: "hi" → instant canned response; "What is ISO 27001?" → ~104s, all 4 variants complete without truncation (latency itself is from CPU-bound Ollama generation speed, not the token cap — a real fix for that would require parallelising the 4 generations or generating variants on-demand instead of eagerly)
+- Style rule: no em dash ('—') in any ComplianceBot+ chat response. Added `_strip_em_dash()` in `backend/app/api/chat.py`, applied to all four returned fields (response/plain_language/professional/legal) in the main pipeline return path; also rewrote the static `_GREETING_RESPONSE` constant to avoid em dashes at the source. Verified on both the greeting short-circuit and a real LLM-generated answer — no em dashes in any field.
+- [Phase 15] Fixed generic "part-N" source citations: root cause was `backend/app/rag/ingest.py`'s `_SECTION_PATTERN`/`_LABEL_PATTERN` only matching legal "Section/Clause/Article N" keywords, but all 6 synthetic source documents use numbered ALL-CAPS headings instead (e.g. "1. ORGANIZATIONAL CONTROLS (A.5)"), so every chunk fell back to `part-{i+1}`. Added `_HEADING_PATTERN` to extract the real heading text as the section label when no legal-keyword label matches; only the document's intro/title paragraph (before any numbered heading) still falls back to `part-1`, which is correct since it isn't a real clause. Re-ingested corpus (40 chunks) from `backend/` so it persists to `backend/chroma_db` (the path the app actually reads — a prior ingest run from repo root had silently written to a stray root-level `chroma_db`, now deleted). Verified citations now show real labels like "ORGANIZATIONAL CONTROLS (A.5)" instead of "part-1". 39/39 tests still pass.
 
 ### Session 5 — 2026-06-21
 - Fixed broken chat responses (raw dumps, same output for different queries)

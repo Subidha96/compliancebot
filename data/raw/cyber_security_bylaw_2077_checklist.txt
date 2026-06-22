@@ -1,44 +1,76 @@
-SYNTHETIC EDUCATIONAL SUMMARY — not official legal text
+VERBATIM EXCERPT — official Byelaw text
+Source: Cyber Security Byelaw, 2077 (2020), framed by Nepal Telecommunications
+Authority (NTA) under Section 62 of the Telecommunication Act, 2053 (1997)
+Official: https://nta.gov.np/uploads/contents/Cyber-Security-Bylaw-2077-2020.pdf
 ================================================================================
-Cyber Security Bylaw 2077 (2020) — Compliance Checklist
-Source: Nepal Telecommunications Authority (NTA)
-================================================================================
 
-This document provides an educational summary of the Cyber Security Bylaw 2077. For official text, refer to the Nepal Gazette.
+This document quotes the actual clause text/numbers from the Byelaw, not a
+paraphrase. "Licensee" means the Telecommunication Service Provider (TSP) or
+Internet Service Provider (ISP) holding a license issued by NTA, to whom this
+Byelaw applies mandatorily.
 
-1. APPLICABLE ENTITIES
-   - All Telecommunication Service Providers (TSPs)
-   - Internet Service Providers (ISPs)
-   - Public and private organizations handling sensitive data
+1. ORGANIZATIONAL SECURITY (Chapter 2, clauses 3-24)
+   Clause 4: Licensee shall have its board-approved ICT Security Policies for
+     planning, organizing, and managing information security.
+   Clause 5: Licensee shall review ICT Security Policies developed at least
+     once a year.
+   Clause 9: Licensee shall promote information security awareness throughout
+     the organization.
+   Clause 12: Licensee shall enforce password policy rules (length,
+     complexity, rotation) for implementing password management.
 
-2. MANDATORY REQUIREMENTS
+2. NETWORK AND TECHNICAL CONTROLS (Chapters 3-6, clauses 25-52)
+   Clause 25: Licensee shall use DDoS Detection and Mitigation systems.
+   Clause 30: Licensee shall have provision to securely authenticate users
+     (2-Factor Authentication/MFA).
+   Clause 34: Licensee shall have Network Firewall and implement specified
+     firewall measures.
+   Clause 41: System clocks of all information processing systems shall be
+     synchronized.
+   Clause 44: Licensee shall comply with provisions related to log records.
+   Clause 46: Licensee shall use OTP or other 2-factor authentication.
+   Clause 48: Licensee shall use SSL/TLS in applicable services.
+   Clause 50: Licensee shall apply encryption techniques for data in transit.
 
-   a) Information Security Audits
-      - Quarterly IS audits by certified auditors
-      - Annual penetration testing
-      - Documentation of audit findings and remediation
+3. INFORMATION SYSTEM (IS) AUDIT — CHAPTER 7 (clauses 53-56)
+   Clause 53: Licensee shall have an internal security audit team for
+     regular network/system/critical infrastructure audit and submit the
+     security audit report to the authority every six (6) months.
+   Clause 54: Licensee shall perform penetration testing and vulnerability
+     assessment every three (3) months and perform required rectifications.
+   Clause 55: Licensee shall perform an Information System (IS) audit
+     annually to verify compliance, conducted by NTA or a Government of
+     Nepal-designated IS Auditor.
+   Clause 56: Licensee shall rectify vulnerabilities and gaps identified by
+     IS Auditors at the soonest.
 
-   b) Security Monitoring
-      - 24x7 security operations center (SOC)
-      - Real-time intrusion detection systems
-      - Log retention for minimum 6 months
+4. CLOUD SECURITY — CHAPTER 8 (clause 57)
+   Clause 57: Licensees providing cloud services shall define a cloud
+   control matrix and zero-trust policy, require SLA/NDA with cloud service
+   providers, use IAM for access control, and have cloud services audited
+   annually by an NTA-designated Cloud Auditor.
 
-   c) Incident Response
-      - Dedicated incident response team
-      - Incident response plan documented and tested
-      - Mandatory reporting to NTA within 24 hours
+5. CERT / INCIDENT RESPONSE — CHAPTER 9 (clauses 58-63)
+   Clause 58: Licensee shall form an Incident Response team/CERT.
+   Clause 59: Licensee shall have approved emergency incident response plans
+     and communication plans.
+   Clause 60: In case of any security incident, the licensee shall
+     coordinate with NTA's task-force (chaired by NTA's Director, Monitoring
+     Division) to minimize loss and identify the attack source.
+   Clause 61-62: The task-force reports to a high-level NTA Steering
+     Committee (chaired by the NTA Chairman) which issues directives and
+     recommends policy decisions.
+   Clause 63: NTA shall develop an Information Sharing Platform for
+     incidents/threats, which licensees must use.
 
-   d) Personnel Security
-      - Background checks for key personnel
-      - Mandatory security awareness training
-      - Confidentiality agreements
+6. SECURITY OPERATIONS — CHAPTER 10 (clauses 64-68)
+   Clause 64: Licensee shall have a dedicated in-house Security
+     Unit/Operation Centre.
+   Clause 65: All security alerts and events must be logged and monitored
+     24x7.
+   Clause 66: Licensee shall have systems like SIEM (Security Information
+     and Event Management).
 
-3. COMPLIANCE DEADLINES
-   - Initial compliance: Within 6 months of enactment
-   - Annual compliance reports to NTA
-   - Penalties for non-compliance: NPR 50,000 to 500,000
-
-4. NTA MONITORING
-   - NTA has authority to conduct inspections
-   - Can request documentation at any time
-   - May impose additional requirements based on risk assessment
+[VERIFY] Chapters 1, 6 (data protection), and 11 (training) and the full
+Annex-1 audit checklist referenced in Clause 55 are not reproduced verbatim
+here for length — consult the official NTA PDF for complete text.

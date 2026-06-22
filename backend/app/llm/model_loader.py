@@ -111,9 +111,34 @@ def load_model(model_name: Optional[str] = None, use_gpu: Optional[bool] = None)
         ) from e
 
 
+def _check_ollama_available() -> bool:
+    """Ping the Ollama server to confirm the configured model is present."""
+    import httpx
+
+    try:
+        resp = httpx.get(f"{settings.OLLAMA_HOST}/api/tags", timeout=5.0)
+        resp.raise_for_status()
+        names = {m["name"] for m in resp.json().get("models", [])}
+        return settings.OLLAMA_MODEL in names
+    except Exception as e:
+        logger.warning("Ollama health check failed: %s", e)
+        return False
+
+
 def get_model():
-    """Return the loaded model, loading it if necessary."""
-    global _model
+    """Return the loaded model, loading it if necessary.
+
+    When ``settings.USE_OLLAMA`` is set, no HuggingFace model is loaded —
+    generation is delegated to the Ollama server in inference.py. This
+    returns a sentinel string so callers checking ``model is not None``
+    (e.g. the health endpoint) still report correctly.
+    """
+    global _model, _model_name_used
+    if settings.USE_OLLAMA:
+        if _check_ollama_available():
+            _model_name_used = f"ollama:{settings.OLLAMA_MODEL}"
+            return _model_name_used
+        return None
     if _model is None:
         load_model()
     return _model
@@ -122,6 +147,8 @@ def get_model():
 def get_tokenizer():
     """Return the loaded tokenizer, loading it if necessary."""
     global _tokenizer
+    if settings.USE_OLLAMA:
+        return None
     if _tokenizer is None:
         load_model()
     return _tokenizer
