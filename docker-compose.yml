@@ -1,22 +1,71 @@
 version: '3.9'
 
 services:
+  # Local LLM inference via Ollama (with auto model pull)
+  ollama:
+    build:
+      context: .
+      dockerfile: ollama/Dockerfile
+    ports:
+      - "11434:11434"
+    environment:
+      - OLLAMA_HOST=0.0.0.0:11434
+      - OLLAMA_MODEL=${OLLAMA_MODEL:-mistral:latest}
+    volumes:
+      - ollama_data:/root/.ollama
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:11434/api/tags"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+    restart: unless-stopped
+
+  # Vector database for RAG
+  chromadb:
+    image: chromadb/chroma:latest
+    ports:
+      - "8001:8000"
+    environment:
+      - IS_PERSISTENT=TRUE
+      - CHROMA_DB_IMPL=duckdb+parquet
+      - PERSIST_DIRECTORY=/chroma/chroma
+    volumes:
+      - chroma_data:/chroma/chroma
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/heartbeat"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+
+  # FastAPI backend with RAG + LLM
   backend:
     build:
       context: ./backend
       dockerfile: Dockerfile
     ports:
-      - "8000:8000"
+      - "8002:8002"
     environment:
-      - DEBUG=${DEBUG:-false}
-      - USE_GPU=${USE_GPU:-true}
-      - CHROMA_PERSIST_DIR=/data/chroma_db
+      DEBUG: ${DEBUG:-false}
+      USE_OLLAMA: "true"
+      OLLAMA_HOST: http://ollama:11434
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-mistral:latest}
+      USE_GPU: "false"
+      CHROMA_PERSIST_DIR: /data/chroma_db
+      ALLOWED_ORIGINS: "http://localhost:3000,http://localhost:3001"
     volumes:
       - chroma_data:/data/chroma_db
+      - ./backend:/app
     depends_on:
-      - chromadb
+      ollama:
+        condition: service_healthy
+      chromadb:
+        condition: service_healthy
     restart: unless-stopped
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8002 --reload
 
+  # Next.js frontend
   frontend:
     build:
       context: ./frontend
@@ -24,20 +73,15 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - NEXT_PUBLIC_API_URL=http://localhost:8000
-      - HOSTNAME=0.0.0.0
-      - PORT=3000
+      NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:8002}
+      HOSTNAME: 0.0.0.0
+      PORT: 3000
     depends_on:
       - backend
     restart: unless-stopped
 
-  chromadb:
-    image: chromadb/chroma:latest
-    ports:
-      - "8001:8000"
-    volumes:
-      - chroma_data:/chroma/chroma
-    restart: unless-stopped
-
 volumes:
+  ollama_data:
+    driver: local
   chroma_data:
+    driver: local
