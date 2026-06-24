@@ -18,13 +18,16 @@ class Settings(BaseSettings):
     MODEL_NAME: str = "mistralai/Mistral-7B-Instruct-v0.3"
     FALLBACK_MODEL: str = "Qwen/Qwen2-0.5B-Instruct"
     USE_GPU: bool = True
-    MAX_NEW_TOKENS: int = 1024
+    MAX_NEW_TOKENS: int = 256
     TEMPERATURE: float = 0.7
 
     # Ollama backend (local inference via Ollama server instead of transformers)
     USE_OLLAMA: bool = False
     OLLAMA_HOST: str = "http://localhost:11434"
     OLLAMA_MODEL: str = "qwen3.5:2b"
+
+    # Set to False to skip loading HuggingFace model on startup (retrieval-only mode)
+    LOAD_LLM: bool = False
 
     # RAG Configuration — multilingual models
     EMBEDDING_MODEL: str = "intfloat/multilingual-e5-base"

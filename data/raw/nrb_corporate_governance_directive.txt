@@ -1,0 +1,175 @@
+VERBATIM EXCERPT — NRB Directive No. 2 on Corporate Governance
+Source: Nepal Rastra Bank, Unified Directives 2082 (2026), Directive No. 2
+Official: https://www.nrb.org.np
+================================================================================
+
+This document summarises the key provisions of NRB Directive No. 2, which
+establishes the corporate governance framework for all Class A, B, C, and D
+banks and financial institutions (BFIs) licensed by Nepal Rastra Bank.
+NRB issued this directive under Section 79 of the Nepal Rastra Bank Act, 2058.
+
+1. BOARD OF DIRECTORS — COMPOSITION AND RESPONSIBILITIES
+
+   Section 1: Board Composition
+   - Every BFI must have a Board of Directors comprising at least 5 and
+     no more than 11 members.
+   - At least one-third of board members must be independent directors.
+   - The board must include a balance of executive, non-executive, and
+     independent directors to ensure effective oversight.
+   - Directors must meet fit-and-proper criteria prescribed by NRB,
+     including educational qualifications, professional experience, and
+     clean criminal and credit history.
+
+   Section 2: Board Responsibilities
+   - The board is responsible for approving the BFI's strategic direction,
+     business plans, and annual budgets.
+   - The board must ensure adequate internal controls and risk management
+     systems are in place.
+   - The board must approve and review the BFI's policies including credit
+     risk, market risk, liquidity risk, operational risk, and compliance
+     policies.
+   - The board must ensure compliance with all applicable laws, regulations,
+     and NRB directives.
+
+   Section 3: Board Committees
+   - Every BFI must establish the following mandatory committees:
+     (a) Audit Committee — comprising at least 3 members, all non-executive,
+         with at least one independent director as chairperson. Responsible
+         for overseeing financial reporting, internal audit, and external
+         audit functions.
+     (b) Risk Management Committee — responsible for overseeing the BFI's
+         risk management framework, including credit, market, liquidity,
+         operational, and IT/cybersecurity risks.
+     (c) Remuneration Committee — responsible for setting compensation
+         policies for senior management and board members.
+     (d) Nomination Committee — responsible for recommending candidates
+         for board positions based on fit-and-proper criteria.
+   - Committees must meet at least quarterly and report to the full board.
+
+2. FIT-AND-PROPER CRITERIA
+
+   Section 4: Director Qualifications
+   - No person shall be appointed as a director if they:
+     (a) Have been convicted of a criminal offence involving moral turpitude.
+     (b) Have been declared bankrupt or have outstanding unpaid debts.
+     (c) Have been blacklisted by NRB or any other financial regulator.
+     (d) Have been removed from a position in any financial institution
+         for misconduct.
+   - Directors must disclose any conflicts of interest to the board and
+     must recuse themselves from decisions where they have a personal interest.
+   - No person may serve as a director in more than 3 BFIs simultaneously.
+
+3. DISCLOSURE AND TRANSPARENCY
+
+   Section 5: Mandatory Disclosures
+   - BFIs must collect and submit detailed disclosures when appointing
+     directors, CEOs, or senior management, including:
+     (a) Self-declaration of legal compliance under applicable laws.
+     (b) Full family details and background information.
+     (c) Criminal background disclosure, both domestic and international.
+     (d) Details of ongoing lawsuits, investigations, or dispute proceedings.
+     (e) Information on outstanding government dues or court-ordered liabilities.
+     (f) Blacklisting status in Nepal or abroad related to credit or loans.
+     (g) Conflict of interest declarations.
+     (h) Disclosure of foreign assets or beneficial ownership (for Nepali citizens).
+     (i) Detailed professional history, including employment record,
+         responsibilities, awards, and penalties.
+     (j) Financial soundness declarations.
+   - Existing executives must also submit the same disclosures.
+   - Any changes in disclosed information must be updated and reported to NRB.
+
+   Section 6: Financial Reporting
+   - All BFIs must publish a summarized interim financial report within
+     15 days of the end of each quarter in a national daily newspaper.
+   - Full financial details must be uploaded to the institution's website.
+   - Annual audited financial statements must be presented at the annual
+     general meeting (AGM) within 6 months of the fiscal year end.
+
+4. SHAREHOLDER PROTECTIONS
+
+   Section 7: Promoter Shareholding
+   - When shareholding exceeds 5% of paid-up capital or NPR 2.5 million,
+     BFIs must collect detailed beneficial ownership information and submit
+     it to NRB.
+   - Required disclosures include identity details, family background,
+     criminal history, legal disputes, tax liabilities, blacklist status,
+     conflict of interest declarations, foreign asset ownership,
+     professional background, and financial capacity.
+   - For institutional investors holding stakes in banks, the rule extends
+     to individuals who directly or indirectly control 15% or more of
+     the investing entity.
+
+   Section 8: Related-Party Transactions
+   - Loans and advances to related parties must be approved by the board
+     and disclosed in the financial statements.
+   - Related-party loans must not exceed prescribed limits as a percentage
+     of the BFI's capital.
+
+5. RISK MANAGEMENT FRAMEWORK
+
+   Section 9: Enterprise Risk Management
+   - Every BFI must establish a comprehensive risk management framework
+     covering:
+     (a) Credit risk — policies for loan approval, classification,
+         provisioning, and concentration limits.
+     (b) Market risk — policies for interest rate risk, foreign exchange
+         risk, and securities portfolio risk.
+     (c) Liquidity risk — policies for liquidity buffer, stress testing,
+         and contingency funding plans.
+     (d) Operational risk — policies for internal controls, business
+         continuity planning, and incident management.
+     (e) IT and cybersecurity risk — policies for information security,
+         data protection, and cyber resilience.
+   - The board must appoint a Chief Risk Officer (CRO) who reports
+     directly to the Risk Management Committee.
+
+6. INTERNAL AUDIT AND COMPLIANCE
+
+   Section 10: Internal Audit
+   - Every BFI must establish an independent internal audit function that
+     reports directly to the Audit Committee.
+   - Internal audit must cover all operations and must conduct risk-based
+     annual audit plans.
+   - The head of internal audit must be appointed by the board and cannot
+     be removed without NRB's approval.
+
+   Section 11: Compliance Function
+   - Every BFI must appoint a Compliance Officer responsible for ensuring
+     compliance with all applicable laws, regulations, and NRB directives.
+   - The Compliance Officer must submit quarterly compliance reports to
+     the Audit Committee and NRB.
+
+7. PENALTIES FOR NON-COMPLIANCE
+
+   Section 12: Enforcement Actions
+   - NRB may impose penalties including:
+     (a) Monetary fines up to NPR 10 million per violation.
+     (b) Removal of directors or officers found guilty of misconduct.
+     (c) Restriction on dividend payments and branch expansion.
+     (d) Suspension or revocation of the BFI's license in severe cases.
+   - NRB may also initiate criminal proceedings against individuals
+     involved in fraud, embezzlement, or willful negligence.
+
+8. GOVERNANCE CHALLENGES IN NEPAL
+
+   Section 13: Known Issues
+   - Board politicization: Board positions are sometimes awarded based on
+     political connections rather than professional competence.
+   - Weak enforcement: While NRB has comprehensive directives, enforcement
+     has been inconsistent, particularly for smaller BFIs.
+   - Limited independent director pool: Nepal's financial sector has a
+     relatively small pool of qualified independent directors.
+   - Related-party lending: Historical concerns about excessive lending
+     to related parties of board members and major shareholders.
+   - Transparency gaps: Some BFIs have been slow to adopt international
+     disclosure and reporting standards.
+
+   Section 14: Recent Reforms (2025-2026)
+   - NRB has tightened disclosure requirements for bank executives and
+     major shareholders (Unified Directives 2082, June 2026).
+   - Continuous reporting requirements now mandate real-time updates
+     whenever disclosed information changes.
+   - Stricter beneficial ownership rules for institutional investors
+     with 15%+ stakes in BFIs.
+   - Enhanced oversight of IT governance and cybersecurity risk as part
+     of the broader enterprise risk management framework.

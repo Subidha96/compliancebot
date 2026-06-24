@@ -34,6 +34,11 @@ _SOURCE_URLS: dict[str, str] = {
     "nepal_cyber_security_policy_2023_summary": "https://mocit.gov.np/content/7119/7119-national-cyber-security-policy/",
     "privacy_act_2075_summary": "https://lawcommission.gov.np/content/12261/12261-the-privacy-act-2075/",
     "cyber_security_bylaw_2077_checklist": "https://nta.gov.np/uploads/contents/Cyber-Security-Bylaw-2077-2020.pdf",
+    "nrb_corporate_governance_directive": "https://www.nrb.org.np",
+    "oecd_principles_corporate_governance": "https://www.oecd.org/en/publications/g20-oecd-principles-of-corporate-governance-2023_ed750b30-en.html",
+    "nepal_companies_act_2063_summary": "https://lawcommission.gov.np/content/12157/12157-company-act-2063/",
+    "iso_37000_governance_summary": "https://www.iso.org/standard/65036.html",
+    "nepal_labour_act_2074_summary": "https://lawcommission.gov.np",
 }
 
 # Lazy-loaded singletons (avoid import-time failures)
@@ -98,6 +103,11 @@ def _check_llm_available() -> bool:
     global _llm_available
     if _llm_available is not None:
         return _llm_available
+    from app.core.config import settings
+    if not settings.LOAD_LLM and not settings.USE_OLLAMA:
+        _llm_available = False
+        logger.info("LLM disabled (LOAD_LLM=false, USE_OLLAMA=false) — retrieval-only mode")
+        return False
     try:
         from app.llm.model_loader import get_model
         get_model()
@@ -223,9 +233,13 @@ async def chat(request: ChatRequest) -> ChatResponse:
         if not chunks:
             return ChatResponse(
                 response=(
-                    "I don't have enough information in my knowledge base to answer that question accurately. "
-                    "Could you rephrase, or ask about a specific Nepal cybersecurity regulation, "
-                    "ISO 27001 control, or NIST CSF topic?"
+                    "I don't have enough information in my knowledge base to answer that "
+                    "question accurately. I can help with governance, risk, and compliance "
+                    "topics including: corporate governance (board structure, shareholder "
+                    "rights, OECD Principles), Nepal banking regulation (NRB directives), "
+                    "Nepal company law (Companies Act 2063), information security (ISO 27001, "
+                    "NIST CSF), privacy law (Privacy Act 2075), and labour law (Labour Act "
+                    "2074). Could you rephrase your question or ask about one of these areas?"
                 ),
                 mode=request.mode,
                 confidence="low",

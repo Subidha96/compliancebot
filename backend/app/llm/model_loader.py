@@ -54,9 +54,9 @@ def _try_load_model(name: str, gpu: bool):
             name,
             device_map="cpu",
             trust_remote_code=True,
-            torch_dtype=torch.float32,
+            torch_dtype=torch.float16,
         )
-        logger.info("Model %s loaded on CPU (fp32)", name)
+        logger.info("Model %s loaded on CPU (fp16)", name)
 
     return model, tokenizer
 

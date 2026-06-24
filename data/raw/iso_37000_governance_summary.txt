@@ -1,0 +1,147 @@
+VERBATIM SUMMARY — ISO 37000:2021 Governance of Organizations
+Source: International Organization for Standardization (ISO)
+Official: https://www.iso.org/standard/65036.html
+================================================================================
+
+ISO 37000:2021 provides guidance on the governance of organizations. It
+provides principles and key aspects of practices to guide governing bodies
+and governing groups on how to meet their responsibilities so that the
+organizations they govern can fulfil their purpose. Published in 2021, it
+is the first international standard for organizational governance.
+
+APPLICABILITY:
+   The standard is applicable to all organizations regardless of type, size,
+   location, structure or purpose. It is also intended for stakeholders
+   involved in, or impacted by, the organization and its governance.
+
+1. THE GOVERNANCE OF ORGANIZATIONS
+
+   4.1 General
+   Governance is defined as the system by which an organization is directed
+   and held to account. It encompasses the systems, structures, processes,
+   and practices that determine how the organization makes decisions, sets
+   objectives, and monitors performance.
+
+   4.2 Integrated Governance
+   Good governance integrates purpose, strategy, and oversight across all
+   levels of the organization. It is not a separate function but is embedded
+   in how the organization operates.
+
+   4.3 The Governing Body
+   The governing body (board of directors, council, or equivalent) is
+   responsible for the governance of the organization. Its role includes:
+   - Setting the organization's purpose, vision, and strategic direction.
+   - Establishing governance policies and ethical standards.
+   - Overseeing risk management and internal controls.
+   - Ensuring accountability and transparency.
+   - Engaging with stakeholders.
+
+2. PRINCIPLES OF GOVERNANCE
+
+   ISO 37000 distills governance into 11 core principles organized into
+   three tiers: 1 Primary Principle, 4 Foundational Principles, and
+   6 Enabling Principles.
+
+   6.1 PURPOSE (Primary Principle)
+   The pursuit of purpose is at the centre of all organizations and is of
+   primary importance for governance. Good governance lays the foundation
+   for the fulfilment of the purpose of the organization in an ethical,
+   effective and responsible manner in line with stakeholder expectations.
+
+   6.2 VALUE GENERATION (Foundational Principle)
+   The governing body should clarify the value generation objectives and
+   govern so that these objectives are met. This requires defining a clear
+   and transparent value generation model that defines, creates, delivers
+   and sustains appropriate value for all stakeholders.
+
+   6.3 STRATEGY (Foundational Principle)
+   The governing body should direct and engage with the organizational strategy
+   to fulfil the organizational purpose. The board sets strategic outcomes,
+   establishes governance policies to guide strategy development, engages in
+   strategic planning and dynamically steers the strategy through personal,
+   direct involvement.
+
+   6.4 OVERSIGHT (Foundational Principle)
+   The governing body's role and responsibility includes overseeing and
+   ensuring the right organizational controls. For the first time, clarity
+   is given at a global level on the internal control system and the
+   assurance processes. Oversight includes ensuring that an internal control
+   system is implemented and assuring itself that the governance system is
+   appropriately designed and operating as intended.
+
+   6.5 ACCOUNTABILITY (Foundational Principle)
+   The governing body is not "above the law" and neither are those to whom
+   the governing body has delegated. Accountability at all levels is a key
+   aspect of governance. It is demonstrated through reports, disclosures,
+   effective stakeholder engagement, and applying improvements.
+
+   6.6 STAKEHOLDER ENGAGEMENT (Enabling Principle)
+   The governing body should understand its stakeholders, establish clear
+   criteria to determine the relevance of stakeholder expectations, ensure
+   effective relationships are established and maintained, and that
+   expectations become an effective part of organizational decision-making.
+
+   6.7 LEADERSHIP (Enabling Principle)
+   The governing body should lead the organization ethically and effectively
+   and ensure such leadership throughout the organization. The board should
+   set the tone for an ethical organizational culture, lead by example to
+   create a positive culture, and engender trust and cooperation among
+   stakeholders.
+
+   6.8 DATA AND DECISIONS (Enabling Principle)
+   The governing body should recognize data as a strategic asset. It should
+   ensure that decisions are based on credible, relevant, and timely
+   information. The board should establish processes for collecting,
+   analyzing, and using data to inform governance decisions.
+
+   6.9 RISK GOVERNANCE (Enabling Principle)
+   The governing body should oversee the identification, assessment, and
+   management of risks that may affect the organization's ability to fulfil
+   its purpose. This includes strategic, operational, financial, compliance,
+   and reputational risks.
+
+   6.10 SOCIAL RESPONSIBILITY (Enabling Principle)
+   The governing body should ensure that the organization operates in a
+   socially responsible manner, considering the impact of its decisions
+   on society and the environment.
+
+   6.11 VIABILITY AND PERFORMANCE OVER TIME (Enabling Principle)
+   The governing body should ensure the organization's long-term viability
+   and sustainable performance by balancing short-term results with
+   long-term value creation.
+
+3. GOVERNANCE OUTCOMES
+
+   Effective application of these principles leads to the following outcomes:
+   - Ethical and effective organizational behaviour.
+   - Sustainable value creation for stakeholders.
+   - Trust and legitimacy with stakeholders.
+   - Resilience in the face of change and adversity.
+   - Accountability and transparency in decision-making.
+
+4. APPLICATION STEPS
+
+   Applying governance in conformity with ISO 37000 involves:
+   1. Leadership and Commitment — obtain leadership commitment for governance.
+   2. Define Governance Objectives — align with strategic goals and stakeholder
+      interests.
+   3. Establish Governance Structures — define roles, responsibilities, and
+      decision-making mechanisms.
+   4. Risk Management and Compliance — implement processes to identify, assess,
+      and mitigate governance risks.
+   5. Ethical Standards and Integrity — establish codes of conduct for all
+      members of the organization.
+   6. Stakeholder Engagement — identify and engage with key stakeholders.
+   7. Transparency and Accountability — provide stakeholders with access to
+      relevant information.
+   8. Performance Monitoring — establish KPIs to measure governance effectiveness.
+   9. Continual Improvement — review and update governance structures regularly.
+   10. Training and Development — enhance governance knowledge and skills.
+
+RELEVANCE TO GRC PRACTITIONERS:
+   - ISO 37000 provides a framework for organizations to assess and improve
+     their governance practices.
+   - It complements ISO 27001 (information security governance) by providing
+     the broader organizational governance context.
+   - For Nepal, ISO 37000 offers an international benchmark for evaluating
+     the governance maturity of companies, banks, and other organizations.

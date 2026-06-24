@@ -1,0 +1,176 @@
+VERBATIM SUMMARY — G20/OECD Principles of Corporate Governance 2023
+Source: Organisation for Economic Co-operation and Development (OECD)
+Official: https://www.oecd.org/en/publications/g20-oecd-principles-of-corporate-governance-2023_ed750b30-en.html
+================================================================================
+
+The G20/OECD Principles of Corporate Governance (2023 revision) are the
+global standard for corporate governance policy. They are intended to help
+policy makers evaluate and improve the legal, regulatory, and institutional
+framework for corporate governance. First issued in 1999, last revised in
+2023, and endorsed by G20 Leaders.
+
+I. ENSURING THE BASIS FOR AN EFFECTIVE CORPORATE GOVERNANCE FRAMEWORK
+
+   The corporate governance framework should promote transparent and efficient
+   markets, and the efficient allocation of resources. It should be consistent
+   with the rule of law and clearly articulate the division of responsibilities
+   among different authorities.
+
+   A. The corporate governance framework should be developed with a view to
+      its impact on corporate access to finance, overall economic performance
+      and financial stability, the sustainability and resilience of corporations.
+   B. Legal and regulatory requirements should be consistent with the rule of
+      law, transparent and enforceable. Corporate governance codes may offer
+      a complementary mechanism to support best practices.
+   C. The division of responsibilities among different authorities should be
+      clearly articulated and ensure that the public interest is served.
+   D. Stock market regulation should support effective corporate governance.
+   E. Supervisory, regulatory and enforcement authorities should have the
+      authority, autonomy, integrity and resources to fulfil their duties in
+      a professional and objective manner.
+   F. Digital technologies can enhance supervision and implementation of
+      corporate governance requirements, but authorities should manage
+      associated risks.
+   G. Cross-border co-operation should be enhanced through bilateral and
+      multilateral arrangements for exchange of information.
+   H. Clear regulatory frameworks should ensure effective oversight of
+      publicly traded companies within company groups.
+
+II. THE RIGHTS AND EQUITABLE TREATMENT OF SHAREHOLDERS AND KEY OWNERSHIP FUNCTIONS
+
+   The corporate governance framework should ensure equitable treatment of all
+   shareholders, including minority and foreign shareholders. All shareholders
+   should have the opportunity to obtain effective redress for violation of
+   their rights.
+
+   Key provisions:
+   - Shareholders should have the right to participate in decisions concerning
+     changes to the corporate governance framework (e.g., amendments to the
+     articles of association).
+   - Shareholders should have the right to receive relevant and timely
+     information about the company, including financial performance, governance
+     structure, and major shareholdings.
+   - The share transfer process should be transparent and efficient.
+   - Controlling shareholders should not exercise their power to the detriment
+     of minority shareholders.
+   - Related-party transactions should be approved at arm's length and with
+     proper disclosure.
+   - Shareholders should have the opportunity to ask questions at the AGM,
+     including questions about financial statements and governance practices.
+
+III. INSTITUTIONAL INVESTORS, STOCK MARKETS, AND OTHER INTERMEDIARIES
+
+   Institutional investors acting in a fiduciary capacity should disclose their
+   overall corporate governance and voting policies with respect to their
+   investments.
+
+   Key provisions:
+   - Institutional investors should disclose how they manage material conflicts
+     of interest that may affect the exercise of key ownership rights.
+   - Institutional investors should be allowed to consult with each other on
+     issues concerning basic shareholder rights.
+   - Stock exchanges should ensure that listed companies comply with governance
+     standards as a condition of listing.
+   - Market intermediaries should act in the best interests of their clients.
+
+IV. DISCLOSURE AND TRANSPARENCY
+
+   The corporate governance framework should ensure that timely and accurate
+   disclosure is made on all material matters regarding the corporation,
+   including the financial situation, performance, ownership, and governance.
+
+   Key provisions:
+   - Annual and interim financial reports should be prepared in accordance
+     with national or international accounting standards (IFRS).
+   - Auditing standards should be of high quality and ensure independence
+     of the external auditor.
+   - Material information about the company's governance should be disclosed,
+     including board composition, remuneration, related-party transactions,
+     and risk management policies.
+   - Information should be accessible to all users at the same time and
+     disclosed in a timely manner.
+   - A company's equity ownership structure should be disclosed, including
+     controlling shareholders and cross-shareholdings.
+   - Projections and forecasts should be disclosed where material to investment
+     decisions.
+
+V. THE RESPONSIBILITIES OF THE BOARD
+
+   The board should act in the best interests of the company and its shareholders.
+   The board should have appropriate size, composition, and structures to
+   fulfil its responsibilities effectively.
+
+   Key provisions:
+   V.A. Board members should act on a fully informed basis, in good faith,
+        with due diligence and care, in the best interest of the company
+        and its shareholders.
+   V.B. Where board decisions may affect different shareholder groups equally,
+        the board should treat all shareholders fairly.
+   V.C. The board should apply high ethical standards. It should take into
+        account the interests of stakeholders and consider the broader
+        impact of its decisions on society and the environment.
+   V.D. Board structures and practices should be reviewed periodically and
+        disclosed to shareholders.
+
+   V.D.1. Board Size and Composition
+          The board should have an appropriate size and composition. It should
+          have a sufficient number of non-executive members, including
+          independent directors, to exercise objective judgement.
+          - Board size should be appropriate for the company's size and
+            complexity.
+          - The board should have a mix of skills, experience, diversity,
+            and independence.
+          - A sufficient proportion of non-executive directors should be
+            independent of management and free from any material business
+            or other relationship.
+
+   V.D.2. Board Leadership
+          The board should select a chairperson and, if necessary, a lead
+          independent director. The roles of chairperson and CEO should
+          be separated or, if combined, the board should justify the
+          decision and have a strong lead independent director.
+
+   V.D.3. Board Committees
+          The board may establish committees to assist in carrying out its
+          responsibilities. Common committees include:
+          - Audit Committee: oversees financial reporting and disclosure,
+            internal controls, and external audit.
+          - Risk Management Committee: oversees the risk management framework.
+          - Remuneration Committee: sets compensation policies for executives.
+          - Nomination Committee: recommends candidates for board positions.
+          Committees should have clear terms of reference and report to the
+          full board.
+
+   V.D.4. Selecting, Overseeing and Monitoring Performance of Key Executives
+          The board should oversee the performance of key executives and
+          monitor that their actions are consistent with the strategy and
+          policies approved by the board. The board should select the CEO
+          and may select other key executives.
+
+VI. SUSTAINABILITY AND RESILIENCE
+
+   The corporate governance framework should promote transparency and disclosure
+   of sustainability-related matters. Companies should consider the interests
+   of a broad range of stakeholders, including employees, customers, creditors,
+   suppliers, local communities, and the environment.
+
+   Key provisions:
+   - The board should oversee the company's approach to environmental, social,
+     and governance (ESG) risks and opportunities.
+   - Companies should disclose material sustainability-related information
+     in their annual reports.
+   - The board should ensure that the company's strategy accounts for
+     climate-related and other sustainability risks and opportunities.
+   - Stakeholder engagement should inform the company's governance and
+     decision-making processes.
+
+GRC RELEVANCE FOR NEPAL:
+   - NRB Directive No. 2 (Nepal's banking governance framework) is broadly
+     aligned with OECD Principles, particularly on board composition,
+     audit committees, risk management, and disclosure.
+   - Nepal's Companies Act 2063 incorporates several OECD recommendations,
+     including independent directors for public companies, mandatory audit
+     committees, and shareholder protection mechanisms.
+   - However, Nepal faces challenges in enforcement, independent director
+     availability, and related-party transaction oversight that the OECD
+     Principles seek to address.

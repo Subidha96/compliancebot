@@ -1,0 +1,140 @@
+VERBATIM EXCERPT — Companies Act, 2063 (2006), Key Corporate Governance Provisions
+Source: Nepal Law Commission
+Official: https://lawcommission.gov.np/content/12157/12157-company-act-2063/
+================================================================================
+
+The Companies Act 2063 (2006) is the primary corporate law governing company
+formation, management, and compliance in Nepal. It replaced the Companies Act
+2053 and consists of 21 chapters and 188 sections. This summary covers the
+key corporate governance provisions relevant to GRC compliance.
+
+1. TYPES OF COMPANIES
+
+   Section 3: Company Classification
+   - Private Company: Maximum 50 shareholders; shares not publicly traded.
+     Examples: startups, family-owned businesses.
+   - Public Company: Minimum 7 promoters; shares publicly traded on NEPSE.
+     Examples: banks, insurance companies, listed companies.
+   - Single Shareholder Company: Introduced by the 2063 Act; owned by one
+     person; no mandatory board meetings required.
+
+2. BOARD OF DIRECTORS
+
+   Section 56: Board Composition
+   - Public companies must have a board of 3 to 11 directors.
+   - At least one director must be an independent director.
+   - Directors are elected by shareholders at the annual general meeting
+     or appointed by promoters in the case of a new company.
+
+   Section 57: Director Qualifications
+   - A person shall not be appointed as a director if they:
+     (a) Are of unsound mind or have been declared of unsound mind by a court.
+     (b) Are an undischarged insolvent.
+     (c) Have been convicted of a criminal offence involving moral turpitude.
+     (d) Have been disqualified under any prevailing law.
+
+   Section 58: Duties of Directors
+   - Directors must act in good faith and in the best interest of the company.
+   - Directors must exercise due care, skill, and diligence.
+   - Directors must disclose any conflict of interest to the board.
+   - Directors must not make secret profits from their position.
+   - Directors must comply with the Companies Act, memorandum of association,
+     and articles of association.
+
+   Section 59: Independent Directors
+   - Public companies must appoint at least one independent director.
+   - An independent director must not have any material relationship with
+     the company (e.g., not be an employee, major shareholder, or business
+     partner of the company).
+   - Independent directors serve a term of up to 4 years and may be
+     reappointed.
+
+3. BOARD COMMITTEES
+
+   Section 60: Audit Committee
+   - Public companies with paid-up capital of NPR 30 million or more must
+     establish an audit committee.
+   - The audit committee must comprise at least 3 members, all non-executive
+     directors, with at least one independent director as chairperson.
+   - The audit committee is responsible for:
+     (a) Overseeing the financial reporting process.
+     (b) Reviewing internal controls and risk management.
+     (c) Recommending the appointment and removal of external auditors.
+     (d) Reviewing the findings of internal and external audits.
+
+4. SHAREHOLDER PROTECTIONS
+
+   Section 61: Annual General Meeting (AGM)
+   - Every company must hold an AGM within 6 months of the end of its
+     fiscal year.
+   - Notice of the AGM must be given to all shareholders at least 21
+     days in advance.
+   - Shareholders have the right to receive the annual financial statements,
+     auditor's report, and any other information required by the Act.
+
+   Section 62: Voting Rights
+   - Every shareholder has the right to vote at general meetings.
+   - Voting may be by show of hands or by poll (if demanded by shareholders).
+   - A quorum of at least 2 shareholders holding at least 10% of paid-up
+     capital is required for a valid general meeting.
+
+   Section 63: Related-Party Transactions
+   - Transactions between the company and its directors or related parties
+     must be disclosed to the board and approved by shareholders.
+   - The board must ensure that related-party transactions are conducted
+     at arm's length and in the best interest of the company.
+
+   Section 64: Shareholder Remedies
+   - A shareholder may apply to the court if the company's affairs are
+     being conducted in a manner oppressive to minority shareholders.
+   - The court may order the purchase of shares, winding up of the company,
+     or other relief as it deems fit.
+
+5. FINANCIAL REPORTING AND AUDIT
+
+   Section 115: Accounts and Audit
+   - Every company must maintain proper books of accounts using the
+     double-entry system.
+   - Financial statements must be prepared in accordance with Nepal
+     Financial Reporting Standards (NFRS) or International Financial
+     Reporting Standards (IFRS).
+   - Annual financial statements must be audited by a practicing chartered
+     accountant registered with the Institute of Chartered Accountants
+     of Nepal (ICAN).
+
+   Section 116: Auditor's Report
+   - The auditor must submit a report to the shareholders on the financial
+     statements, stating whether they present a true and fair view of the
+     company's financial position.
+   - The auditor must report any material irregularities, fraud, or
+     non-compliance with the Companies Act to the company board and
+     the Office of the Company Registrar.
+
+6. INVESTOR PROTECTION FUND
+
+   Section 117: Unclaimed Dividends
+   - Any dividend that remains unclaimed for 3 consecutive years must be
+     transferred to an Investor Protection Fund established under this Act.
+   - The fund is used to protect the interests of investors and to
+     compensate shareholders in cases of fraud or mismanagement.
+
+7. PENALTIES AND ENFORCEMENT
+
+   Section 180: Offences
+   - Penalties for non-compliance with the Companies Act include:
+     (a) Fines ranging from NPR 10,000 to NPR 500,000 depending on the
+         nature and severity of the offence.
+     (b) Imprisonment for up to 3 years for serious offences such as
+         fraud, embezzlement, or willful misrepresentation.
+     (c) Disqualification of directors found guilty of misconduct.
+
+8. 2025-2026 AMENDMENTS
+
+   Key Changes:
+   - Companies may now issue shares for non-cash contributions (IP, services,
+     know-how, goodwill) based on independent valuation and special
+     shareholder resolution.
+   - Share issuance caps raised: 20% general, 40% for startups.
+   - Cross-appointments of directors between related companies now permitted.
+   - One-time 90% waiver on late-filing penalties to encourage compliance.
+   - Faster digital registration streamlined to 15 days.
