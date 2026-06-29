@@ -130,7 +130,7 @@ export default function ChatMessageBubble({ message }: { message: ChatMessageTyp
           );
         })()}
 
-        {!isUser && message.sourceUrls && <ActionButtons sources={message.sources} sourceUrls={message.sourceUrls} />}
+        {!isUser && message.sourceUrls && <ActionButtons sources={message.sources} sourceUrls={message.sourceUrls} sourceCitations={message.sourceCitations} />}
       </div>
     </div>
   );

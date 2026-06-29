@@ -1,0 +1,66 @@
+VERBATIM EXCERPT — official Act text
+Source: The Electronic Transactions Act, 2063 (2006), Act Number 27 of 2063
+Official: https://lawcommission.gov.np/content/13397/electronic--electronic--traded-international-act--2063/
+================================================================================
+
+This document quotes the actual Act text (numbered sections, Chapter 9 -
+"Offence Relating To Computer"), not a paraphrase. Penalty amounts below are
+the Act's own figures — do not confuse with the Privacy Act 2075's penalty
+(see privacy_act_2075_summary.txt), which is a different, separate law with
+its own three-year/NPR-30,000 penalty for different offences.
+
+1. PREAMBLE AND SCOPE (Section 1)
+   This Act extends throughout Nepal and also applies to any person residing
+   anywhere who commits an offence in contravention of this Act, where the
+   computer, computer system, or computer network involved is located in
+   Nepal (Section 55).
+
+2. CHAPTER 9 — OFFENCE RELATING TO COMPUTER (Sections 44-59)
+   Section 44 — To Pirate, Destroy or Alter Computer Source Code: knowingly
+     or with mala fide intention pirating, destroying, or altering computer
+     source code — imprisonment not exceeding 3 years or fine not exceeding
+     NPR 200,000, or both.
+   Section 45 — Unauthorized Access in Computer Materials: accessing a
+     computer's programme, information, or data without authorization, or
+     contrary to the scope of authorization granted — fine not exceeding
+     NPR 200,000 or imprisonment not exceeding 3 years, or both, depending
+     on the seriousness of the offence.
+   Section 46 — Damage to any Computer and Information System: knowingly
+     and with mala fide intention causing wrongful loss or damage by
+     destroying, damaging, deleting, or altering computer information —
+     fine not exceeding NPR 2,000 and imprisonment not exceeding 3 years, or
+     both.
+   Section 47 — Publication of Illegal Materials in Electronic Form:
+     publishing/displaying prohibited material via computer or internet —
+     fine not exceeding NPR 100,000 or imprisonment not exceeding 5 years,
+     or both; repeat offences add 1.5x the previous punishment each time.
+   Section 48 — Confidentiality to Divulge: a person with authorized access
+     to records/data who discloses their confidentiality to an unauthorized
+     person — fine not exceeding NPR 10,000 or imprisonment not exceeding
+     2 years, or both.
+   Section 52 — To Commit Computer Fraud: creating/publishing a fraudulent
+     digital signature certificate or acquiring financial benefit through
+     fraud involving accounts/cards — fine not exceeding NPR 100,000 or
+     imprisonment not exceeding 2 years, or both, plus recovery of the
+     financial benefit acquired.
+   Section 53 — Abetment to Commit Computer Related Offence: fine not
+     exceeding NPR 50,000 or imprisonment not exceeding 6 months, or both.
+   Section 56 — Confiscation: any computer, system, or device used to
+     commit a computer offence under this Act is liable to confiscation.
+   Section 58 — Other Punishment: any violation with no separately
+     specified penalty — fine not exceeding NPR 50,000 or imprisonment not
+     exceeding 6 months, or both.
+
+3. CHAPTER 8 — NETWORK SERVICE PROVIDER LIABILITY (Sections 42-43)
+   Section 43 — a network/internet service provider is not liable for
+   third-party content made available through their service, unless they
+   had knowledge that the content contravened this Act.
+
+4. CHAPTER 10 — INFORMATION TECHNOLOGY TRIBUNAL (Section 60 onward)
+   Government of Nepal constitutes an Information Technology Tribunal and
+   an Appellate Tribunal to adjudicate offences under Chapter 9, rather than
+   ordinary courts.
+
+[VERIFY] Provisions on digital signatures and certifying authorities
+(Chapters 2-7) are not reproduced here for length; consult the official Act
+text for the complete certification-authority licensing regime.

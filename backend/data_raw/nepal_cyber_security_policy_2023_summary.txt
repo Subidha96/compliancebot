@@ -1,0 +1,82 @@
+VERBATIM EXCERPT — official English translation
+Source: National Cyber Security Policy, 2023 (Nepal Cabinet, August 2023)
+Official: https://mocit.gov.np/content/7119/7119-national-cyber-security-policy/
+================================================================================
+
+This document quotes the actual policy text from the Ministry of Communication
+and Information Technology (MoCIT)'s official English translation, not a
+synthetic paraphrase.
+
+1. BACKGROUND
+   With the rapid advancement of information technology, significant changes
+   are occurring in social interaction, public service delivery, and the flow
+   of information. With the continuous development of information
+   technology, its growing use, and increased mobility, unauthorized access
+   to information and related risks have also increased, making cyber
+   security a national priority.
+
+2. LONG-TERM VISION
+   Building a secure as well as Resilient Cyber Space.
+
+3. MISSION
+   To ensure information and data security and protection of information
+   technology systems through a combination of people, process and
+   technology by developing legal and institutional structure, enhancing
+   public awareness and developing capacity.
+
+4. TARGET
+   To increase Nepal's Global Cyber Security Index (GCI) score from the
+   then-current 44.99 to 60% within the next 5 years, 70% within 10 years,
+   and 80% within 15 years.
+
+5. OBJECTIVES
+   9.1 Establish legal and institutional frameworks to build a secure cyber
+       space.
+   9.2 Protect critical national infrastructure while reducing the risk of
+       cyber-attacks.
+   9.3 Enhance cyber security research, human resource development and
+       enhancing capacity of existing workforce, to ensure a robust and
+       strong cyber space.
+   9.4 Improve the reliability and security of digital technology-based
+       services.
+   9.5 Exchange bilateral, regional and international coordination, knowledge
+       sharing, and assistance to reduce cyber security related risks.
+
+6. STRATEGIES
+   10.1 Formulation of necessary laws and standards for a secure and
+        resilient cyber space.
+   10.2 Establish and strengthen institutional structures to protect
+        information and information and communication technology systems.
+   10.3 Identification and protection of critical national infrastructure
+        while managing robust and strong technology, infrastructure and
+        systems to reform cyber security.
+   10.4 Develop, research and utilize the competent human resources related
+        to cyber security.
+   10.5 Operation of digital literacy programs to enhance awareness related
+        to cyber security.
+   10.6 Coordination and collaboration among public agencies, private
+        sectors, and civil society to construct secure cyber space.
+   10.7 Cooperation with foreign countries and international organizations
+        to improve cyber security.
+   10.8 Continuous monitoring for cyber security to construct safe online
+        space.
+   10.9 Holding software developers or suppliers, hardware manufacturers or
+        suppliers, or service providers accountable as required.
+
+7. CRITICAL INFORMATION INFRASTRUCTURE PROTECTION
+   The policy establishes the National Cyber Security Center under MoCIT and
+   introduces strategic objectives for protecting critical information
+   infrastructure (CII) — including banking, energy, telecommunications, and
+   government systems — from cyber-attacks, and for developing systems to
+   detect, prevent, and respond to cyber threats in real time.
+
+8. ACTION PLAN
+   The policy lays out an action plan tied to each strategy above, including:
+   amending and refining existing laws to align with cyber security,
+   enacting laws to control cyber-crime, formulating a National Cyber
+   Security Framework, conducting critical infrastructure risk assessments,
+   and formulating business continuity and disaster recovery procedures.
+
+[VERIFY] The exact text of items 11.x (the full Action Plan) was abbreviated
+here for length; consult the official MoCIT English translation PDF for the
+complete action-plan text under each strategy.

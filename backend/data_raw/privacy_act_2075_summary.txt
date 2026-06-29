@@ -1,0 +1,71 @@
+VERBATIM EXCERPT — official Act text
+Source: The Privacy Act, 2075 (2018), Act Number 14 of 2075
+Official: https://lawcommission.gov.np/content/12261/12261-the-privacy-act-2075/
+================================================================================
+
+This document quotes the actual Act text by chapter and section, not a
+paraphrase. Note: the Act is structured around named categories of privacy
+(body, residence, property, document, data, correspondence, character,
+electronic means) rather than a GDPR-style "personal data" framework — do not
+conflate the two when answering questions about Nepal-specific privacy law.
+
+1. PREAMBLE
+   An Act made to promote dignified living standards by ensuring the right to
+   privacy of matters relating to body, residence, property, document, data,
+   correspondence and character of every person, and to manage the
+   protection and safe use of personal information held by public bodies.
+
+2. CHAPTER 9 — ELECTRONIC MEANS AND PRIVACY (Sections 19-22)
+   Section 19: Every person has the right to maintain privacy of personal
+     information, documents, correspondence, data, or character held in
+     electronic means. No one shall obtain, access, or disclose such
+     material without authorization. No one shall record or listen to
+     electronic communications without the consent of the parties involved
+     or an order from an authorized official.
+   Section 20: CCTV cameras at public places may not be installed in
+     toilets, bathrooms, or changing rooms, and notice of installation must
+     be given.
+   Section 21: No electronic means, photography, or method may be used for
+     surveillance or espionage of a person's residence or office.
+   Section 22: No drone may be used to obtain secret information of a
+     public body, protected site, or person's residence without permission.
+
+3. CHAPTER 10 — COLLECTION AND PROTECTION OF PERSONAL INFORMATION
+     (Sections 23-28)
+   Section 23: No one except an official authorized under law may collect,
+     store, protect, analyze, process, or publish a person's personal
+     information. Where information is collected with consent (e.g. for
+     research), the collector must disclose the purpose, content, and
+     nature of the information being collected.
+   Section 25: A public body holding personal information must protect it
+     and make appropriate arrangements against unauthorized access, use,
+     change, disclosure, or transmission.
+   Section 26: Personal information collected by a public body or body
+     corporate shall not be used or disclosed without the consent of the
+     concerned person, except in specified circumstances (e.g. the purpose
+     for which it was collected, or a written demand in the course of an
+     investigation).
+   Section 27: A public body shall not process sensitive information except
+     as provided by law.
+   Section 28: A person may apply to correct information they believe is
+     inaccurate.
+
+4. CHAPTER 11 — OFFENCE AND PUNISHMENT (Sections 29-32)
+   Section 29(1): Lists the specific acts that constitute an offence under
+     this Act (violations of the body/residence/property/document/data/
+     correspondence/character/electronic-means/collection provisions listed
+     above).
+   Section 29(2): Punishment of imprisonment not exceeding three years, or a
+     fine not exceeding thirty thousand (30,000) rupees, or both, for the
+     offences referred to in sub-section (1).
+   Section 31: Compensation may be awarded if any damage, loss, or injury is
+     caused to a person by an offence under this Act.
+   Section 32: A public official who fails in their duty under this Act may
+     face departmental punishment.
+
+[VERIFY] This is the source of the "3 years imprisonment or NPR 30,000 fine"
+penalty figure — CLAUDE.md previously attributed this penalty to the
+Electronic Transactions Act 2063, which is incorrect; the ETA's own
+confidentiality-breach penalty (Section 48) is a fine not exceeding NPR
+10,000 or imprisonment not exceeding 2 years. See electronic_transactions_act
+_2063_key_clauses.txt and ERRORS_TO_FIX.md for this correction.

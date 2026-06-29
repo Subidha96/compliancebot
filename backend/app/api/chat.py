@@ -50,6 +50,15 @@ _GREETING_WORDS = {
     "bye", "goodbye", "ok", "okay", "k",
 }
 
+_GREETING_PHRASES = {
+    "how are you", "how r you", "how are u", "hru",
+    "whats up", "what's up", "wassup", "sup",
+    "who are you", "what are you", "tell me about yourself",
+    "what can you do", "what do you do", "help me",
+    "good morning", "good afternoon", "good evening",
+    "how's it going", "how is it going",
+}
+
 _GREETING_RESPONSE = (
     "Hello! I'm ComplianceBot+, here to help you understand cybersecurity "
     "governance, risk, and compliance (GRC) concepts, including Nepal cyber "
@@ -72,7 +81,16 @@ def _strip_em_dash(text: Optional[str]) -> Optional[str]:
 
 def _is_greeting(query: str) -> bool:
     """Detect trivial greetings/chitchat that don't need RAG + LLM generation."""
-    words = query.lower().strip(" !.?").split()
+    normalised = query.lower().strip(" !.?").strip()
+    # Check common phrases first (e.g. "how are you?")
+    if normalised in _GREETING_PHRASES:
+        return True
+    # Also check partial phrase matches (strip trailing punctuation)
+    for phrase in _GREETING_PHRASES:
+        if normalised.startswith(phrase):
+            return True
+    # Fall back to single-word check
+    words = normalised.split()
     return len(words) <= 3 and all(w.strip(",!.?") in _GREETING_WORDS for w in words)
 
 
@@ -230,6 +248,23 @@ async def chat(request: ChatRequest) -> ChatResponse:
         from app.rag.retriever import retrieve
         chunks = retrieve(query, top_k=5)
 
+        # Auto-ingest if corpus is empty (first request after startup)
+        if not chunks:
+            try:
+                from app.rag.ingest import get_collection, ingest_corpus
+                collection = get_collection()
+                if collection.count() == 0:
+                    import os
+                    data_dir = settings.DATA_DIR
+                    if not os.path.isdir(data_dir):
+                        data_dir = "data_raw"
+                    if os.path.isdir(data_dir):
+                        logger.info("Corpus empty — auto-ingesting from %s", data_dir)
+                        ingest_corpus(raw_dir=data_dir)
+                        chunks = retrieve(query, top_k=5)
+            except Exception as ingest_err:
+                logger.warning("Auto-ingest failed: %s", ingest_err)
+
         if not chunks:
             return ChatResponse(
                 response=(
@@ -280,14 +315,6 @@ async def chat(request: ChatRequest) -> ChatResponse:
             confidence = "medium"
             shap_summary = None
             bias_passed = True
-
-        # 4. Detect language and translate if needed
-        from app.rag.ingest import _detect_language
-        query_lang = _detect_language(query)
-
-        if query_lang == "ne" and settings.TRANSLATE_OUTPUT and llm_ready:
-            from app.llm.translator import translate
-            response_text = translate(response_text, source_lang="en", target_lang="ne")
 
         return ChatResponse(
             response=_strip_em_dash(response_text),

@@ -34,6 +34,7 @@ class Settings(BaseSettings):
     RERANKER_MODEL: str = "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1"
     CHROMA_PERSIST_DIR: str = "./chroma_db"
     COLLECTION_NAME: str = "nepal_grc_corpus"
+    DATA_DIR: str = "data_raw"
 
     # Translation
     TRANSLATION_MODEL: str = "facebook/nllb-200-distilled-600M"

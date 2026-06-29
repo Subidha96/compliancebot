@@ -1,0 +1,155 @@
+VERBATIM EXCERPT — The Labour Act, 2074 (2017), Key Provisions
+Source: Nepal Law Commission
+Official: https://lawcommission.gov.np
+================================================================================
+
+The Labour Act 2074 (2017) is the principal legislation governing employment
+relationships, workplace rights, and employer obligations in Nepal. It replaced
+the Labour Act 2048 (1992) and applies to all enterprises, companies, factories,
+and establishments employing one or more workers, including foreign-invested
+entities operating in Nepal.
+
+1. APPLICABILITY AND SCOPE
+
+   Section 2: Application
+   - The Act applies to all enterprises, companies, cooperatives, and
+     organizations operating under Nepalese company laws.
+   - It also applies to foreign-registered entities engaged in business,
+     sales, or promotional activities in Nepal.
+   - Non-applicability: Civil Service, Nepal Army, Nepal Police, Armed
+     Police Force, and working journalists (unless specified in contract).
+
+2. TYPES OF EMPLOYMENT
+
+   Section 10: Employment Categories
+   - Regular Employment: Hired for ongoing work and services.
+   - Work-Based Employment: Hired for a specific task or service.
+   - Time-Bound Employment: Employment for a certain time period.
+   - Casual Employment: Employment for 7 days or fewer in a month.
+   - Part-Time Employment: Employment for 35 hours or less per week
+     with pay based on hours worked.
+
+3. WORKER RIGHTS AND PROTECTIONS
+
+   Section 4: Fundamental Rights
+   - Right to work and fair employment.
+   - Right to equal pay for equal work regardless of gender.
+   - Right to a safe and healthy working environment.
+   - Right to form and join trade unions.
+   - Right to collective bargaining.
+   - Right to social security.
+
+   Section 5: Prohibitions
+   - Forced labour under coercion or threats is strictly prohibited.
+   - Employment of children (under 18 years) is prohibited.
+   - Discrimination based on gender, caste, religion, or other grounds
+     is prohibited in hiring, promotion, or termination.
+   - Unequal pay for equal work based on gender is prohibited.
+
+4. WORKING HOURS AND CONDITIONS
+
+   Section 30: Working Hours
+   - Standard working hours: 8 hours per day, 48 hours per week.
+   - A 30-minute break must be provided after every 5 hours of work.
+   - If work cannot be interrupted, employees must work in shifts with
+     breaks in between.
+
+   Section 31: Overtime
+   - Overtime hours: Maximum 24 hours per week, not exceeding 4 hours per day.
+   - Overtime pay: 1.5 times the regular hourly rate.
+
+   Section 32: Weekly Rest
+   - Every employee is entitled to at least 1 day of rest per week.
+
+5. WAGES AND REMUNERATION
+
+   Section 35: Minimum Wage
+   - The minimum wage rate is NPR 17,300 per month (as of August 2023).
+   - Tea estate workers: NPR 13,893 per month.
+   - The government reviews and updates the minimum wage periodically.
+
+   Section 36: Payment Terms
+   - Short-term work: Payment within 3 days of completion.
+   - Regular employees: Payment at month-end.
+   - Annual increment: Half-day salary for employees working at least 1 year.
+
+6. LEAVE ENTITLEMENTS
+
+   Section 40-45: Leave Provisions
+   - Annual leave: 30 days per year after completing 1 year of service.
+   - Sick leave: 15 days per year.
+   - Maternity leave: 98 days (52 days before and 46 days after delivery).
+   - Paternity leave: 5 days.
+   - Bereavement leave: 5 days for immediate family members.
+   - Women employees are entitled to an additional 18 days of maternity
+     leave if they have more than 2 children.
+
+7. SOCIAL SECURITY
+
+   Section 60-70: Social Security Fund
+   - All employers must contribute to the Social Security Fund on behalf
+     of their employees.
+   - Contributions: Employer contributes 11% of basic salary; employee
+     contributes 11% of basic salary.
+   - The fund provides:
+     (a) Provident Fund — retirement savings.
+     (b) Gratuity — one month's salary per year of service upon separation.
+     (c) Health insurance — medical coverage for employees and dependents.
+     (d) Accident and disability insurance — coverage for work-related
+         injuries and disabilities.
+
+8. WORKPLACE SAFETY AND HEALTH
+
+   Section 72-78: Safety Provisions
+   - Every employer must provide a safe and healthy working environment.
+   - Where 20 or more employees are engaged, the employer must constitute
+     a Safety and Health Committee.
+   - Employers must provide personal protective equipment (PPE) at no cost
+     to employees working in hazardous conditions.
+   - Employers must report workplace injuries and fatalities to the Labour
+     Office within 24 hours.
+
+9. COLLECTIVE BARGAINING AND TRADE UNIONS
+
+   Section 116: Collective Bargaining Committee
+   - Where 10 or more employees are engaged, the employer must constitute
+     a Collective Bargaining Committee.
+   - The committee negotiates wages, working conditions, and other terms
+     of employment on behalf of employees.
+
+   Section 117: Right to Strike
+   - Employees may strike if disputes remain unresolved after arbitration.
+   - A 7-day prior notice to management and security agencies is mandatory.
+   - Strikes are prohibited in essential services.
+
+10. DISPUTE RESOLUTION
+
+    Section 150-160: Labour Disputes
+    - Individual claims: Settled through employer negotiation or via the
+      Labour Office.
+    - Collective claims: Submitted by a bargaining committee or trade union.
+    - Mandatory arbitration: Required for essential services and SEZ entities.
+    - Labour Court: Deals with serious violations including forced labour,
+      workplace injuries, and disputes.
+    - Cases must be resolved within 90 days.
+    - Appeals can be made to the Supreme Court within 35 days.
+
+11. PENALTIES FOR NON-COMPLIANCE
+
+    Section 170-180: Offences and Penalties
+    - Employing minors (under 18): Fine of NPR 50,000 to NPR 100,000.
+    - Forced labour: Imprisonment for up to 5 years or fine up to
+      NPR 500,000, or both.
+    - Gender discrimination: Fine of NPR 25,000 to NPR 100,000.
+    - Failure to provide safe workplace: Fine of NPR 10,000 to NPR 50,000
+      per violation.
+    - Repeated violations: Higher penalties and potential license suspension.
+
+RELEVANCE TO GRC:
+   - Labour compliance is a critical component of organizational governance
+     and regulatory compliance.
+   - Companies must integrate labour law compliance into their GRC framework
+     alongside cybersecurity, privacy, and financial regulations.
+   - For women in Nepal's tech workforce (the primary users of ComplianceBot+),
+     understanding maternity leave, equal pay, anti-discrimination, and
+     workplace safety rights is essential.

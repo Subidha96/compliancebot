@@ -48,6 +48,11 @@ def _ensure_bm25_index() -> None:
     _corpus_texts = data["documents"]
     _corpus_metadatas = data["metadatas"]
 
+    if not _corpus_texts:
+        logger.warning("BM25 index: corpus is empty — keyword search will return no results")
+        _bm25 = None
+        return
+
     tokenized = [re.findall(r"\w+", doc.lower()) for doc in _corpus_texts]
     _bm25 = BM25Okapi(tokenized)
     logger.info("Built BM25 index over %d documents", len(_corpus_texts))
@@ -88,6 +93,9 @@ def semantic_search(query: str, top_k: int = 10) -> list[dict]:
 def keyword_search(query: str, top_k: int = 10) -> list[dict]:
     """Sparse keyword search using BM25Okapi."""
     _ensure_bm25_index()
+
+    if _bm25 is None:
+        return []
 
     tokenized_query = re.findall(r"\w+", query.lower())
     scores = _bm25.get_scores(tokenized_query)
@@ -175,6 +183,9 @@ def retrieve(query: str, top_k: int = 5) -> list[dict]:
     keyword_results = keyword_search(query, top_k=10)
 
     fused = reciprocal_rank_fusion(semantic_results, keyword_results)
+
+    if not fused:
+        return []
 
     # Rerank only top-15 candidates (rerankers are slow)
     final = rerank(query, fused[:15], top_k=top_k)

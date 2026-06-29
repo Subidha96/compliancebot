@@ -1,0 +1,110 @@
+VERBATIM EXCERPT — public-domain US government work
+Source: NIST Cybersecurity Framework (CSF) 2.0, NIST CSWP 29, February 26, 2024
+Official: https://www.nist.gov/cyberframework
+================================================================================
+
+This document quotes actual Function/Category descriptions and a representative
+selection of Subcategory outcome statements directly from NIST CSWP 29 (the CSF
+2.0 Core). NIST publications are works of the US Government and are in the
+public domain; this is not a paraphrase or synthetic summary. Subcategory lists
+are abbreviated for brevity — the full Core has 106 subcategories across 22
+categories; see the official document for the complete list.
+
+1. GOVERN (GV): The organization's cybersecurity risk management strategy,
+   expectations, and policy are established, communicated, and monitored.
+   - Organizational Context (GV.OC): The circumstances, mission, stakeholder
+     expectations, dependencies, and legal/regulatory/contractual requirements
+     surrounding the organization's cybersecurity risk management decisions
+     are understood.
+     GV.OC-01: The organizational mission is understood and informs
+     cybersecurity risk management.
+     GV.OC-03: Legal, regulatory, and contractual requirements regarding
+     cybersecurity, including privacy and civil liberties obligations, are
+     understood and managed.
+   - Risk Management Strategy (GV.RM): The organization's priorities,
+     constraints, risk tolerance and appetite statements, and assumptions are
+     established, communicated, and used to support operational risk
+     decisions.
+   - Roles, Responsibilities, and Authorities (GV.RR)
+   - Policy (GV.PO)
+   - Oversight (GV.OV)
+   - Cybersecurity Supply Chain Risk Management (GV.SC)
+
+2. IDENTIFY (ID): The organization's current cybersecurity risks are understood.
+   - Asset Management (ID.AM): Assets (data, hardware, software, systems,
+     facilities, services, people) that enable the organization to achieve
+     business purposes are identified and managed consistent with their
+     relative importance to organizational objectives and the organization's
+     risk strategy.
+     ID.AM-01: Inventories of hardware managed by the organization are
+     maintained.
+     ID.AM-02: Inventories of software, services, and systems managed by the
+     organization are maintained.
+   - Risk Assessment (ID.RA): The cybersecurity risk to the organization,
+     assets, and individuals is understood by the organization.
+     ID.RA-01: Vulnerabilities in assets are identified, validated, and
+     recorded.
+     ID.RA-05: Threats, vulnerabilities, likelihoods, and impacts are used to
+     understand inherent risk and inform risk response prioritization.
+   - Improvement (ID.IM): Improvements to organizational cybersecurity risk
+     management processes, procedures and activities are identified across
+     all CSF Functions.
+
+3. PROTECT (PR): Safeguards to manage the organization's cybersecurity risks
+   are used.
+   - Identity Management, Authentication, and Access Control (PR.AA): Access
+     to physical and logical assets is limited to authorized users, services,
+     and hardware and managed commensurate with the assessed risk of
+     unauthorized access.
+     PR.AA-03: Users, services, and hardware are authenticated.
+     PR.AA-05: Access permissions, entitlements, and authorizations are
+     defined in a policy, managed, enforced, and reviewed, and incorporate
+     the principles of least privilege and separation of duties.
+   - Awareness and Training (PR.AT)
+   - Data Security (PR.DS): Data are managed consistent with the
+     organization's risk strategy to protect the confidentiality, integrity,
+     and availability of information.
+     PR.DS-01: The confidentiality, integrity, and availability of
+     data-at-rest are protected.
+     PR.DS-11: Backups of data are created, protected, maintained, and
+     tested.
+   - Platform Security (PR.PS)
+   - Technology Infrastructure Resilience (PR.IR)
+
+4. DETECT (DE): Possible cybersecurity attacks and compromises are found and
+   analyzed.
+   - Continuous Monitoring (DE.CM): Assets are monitored to find anomalies,
+     indicators of compromise, and other potentially adverse events.
+     DE.CM-01: Networks and network services are monitored to find
+     potentially adverse events.
+   - Adverse Event Analysis (DE.AE): Anomalies, indicators of compromise, and
+     other potentially adverse events are analyzed to characterize the
+     events and detect cybersecurity incidents.
+     DE.AE-08: Incidents are declared when adverse events meet the defined
+     incident criteria.
+
+5. RESPOND (RS): Actions regarding a detected cybersecurity incident are
+   taken.
+   - Incident Management (RS.MA): Responses to detected cybersecurity
+     incidents are managed.
+     RS.MA-01: The incident response plan is executed in coordination with
+     relevant third parties once an incident is declared.
+   - Incident Analysis (RS.AN)
+   - Incident Response Reporting and Communication (RS.CO): Response
+     activities are coordinated with internal and external stakeholders as
+     required by laws, regulations, or policies.
+     RS.CO-02: Internal and external stakeholders are notified of incidents.
+   - Incident Mitigation (RS.MI): RS.MI-01: Incidents are contained.
+     RS.MI-02: Incidents are eradicated.
+
+6. RECOVER (RC): Assets and operations affected by a cybersecurity incident
+   are restored.
+   - Incident Recovery Plan Execution (RC.RP): RC.RP-01: The recovery
+     portion of the incident response plan is executed once initiated from
+     the incident response process.
+   - Incident Recovery Communication (RC.CO)
+
+7. IMPLEMENTATION TIERS (Tier 1 Partial, Tier 2 Risk Informed, Tier 3
+   Repeatable, Tier 4 Adaptive) and PROFILES (Current Profile, Target
+   Profile, gap analysis between current and target) are described
+   separately in the CSF 2.0 Core document.
